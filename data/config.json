@@ -1,0 +1,78 @@
+{
+  "system": {
+    "name": "Industrial Water Tank System",
+    "version": "1.0.0",
+    "last_updated": "2025-11-27T00:00:00Z"
+  },
+  "tanks": {
+    "input_tank_1": {
+      "id": 1,
+      "name": "Input Tank 1",
+      "capacity_liters": 1000,
+      "current_level": 800,
+      "dosing_pump_pin": 25,
+      "dosing_pump_state": false,
+      "target_amount": 0,
+      "dispensed_amount": 0
+    },
+    "input_tank_2": {
+      "id": 2,
+      "name": "Input Tank 2",
+      "capacity_liters": 1000,
+      "current_level": 750,
+      "dosing_pump_pin": 26,
+      "dosing_pump_state": false,
+      "target_amount": 0,
+      "dispensed_amount": 0
+    },
+    "output_tank": {
+      "id": 3,
+      "name": "Output Tank",
+      "capacity_liters": 2000,
+      "current_level": 500
+    }
+  },
+  "sensors": {
+    "flow_sensor_1": {
+      "id": 1,
+      "pin": 33,
+      "tank_id": 1,
+      "pulses_per_liter": 450,
+      "current_flow_rate": 0,
+      "total_pulses": 0
+    },
+    "flow_sensor_2": {
+      "id": 2,
+      "pin": 32,
+      "tank_id": 2,
+      "pulses_per_liter": 450,
+      "current_flow_rate": 0,
+      "total_pulses": 0
+    }
+  },
+  "calibration": {
+    "flow_sensor_calibration_factor": 450,
+    "pump_flow_rate_ml_per_min": 100,
+    "measurement_interval_ms": 1000
+  },
+  "limits": {
+    "max_flow_rate_lpm": 10,
+    "min_flow_rate_lpm": 0.1,
+    "max_target_amount": 500,
+    "auto_shutoff_enabled": true
+  },
+  "network": {
+    "ap_ssid": "WaterTank_AP",
+    "ap_password": "water12345",
+    "ap_channel": 1,
+    "server_port": 80
+  },
+  "logs": {
+    "last_operation": {
+      "timestamp": "",
+      "tank_id": 0,
+      "amount_dispensed": 0,
+      "duration_seconds": 0
+    }
+  }
+}

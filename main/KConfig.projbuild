@@ -1,0 +1,21 @@
+menu "Example Configuration"
+
+    config ESP_WIFI_SSID
+        string "SoftAP SSID"
+        default "ESP32_AP"
+        help
+            SSID (network name) that ESP32 will broadcast in SoftAP mode.
+
+    config ESP_WIFI_PASSWORD
+        string "SoftAP Password"
+        default "12345678"
+        help
+            SoftAP password (must be at least 8 chars).
+
+    config ESP_MAXIMUM_RETRY
+        int "Maximum retry (not used in SoftAP)"
+        default 5
+        help
+            For STA mode – unused here.
+
+endmenu
