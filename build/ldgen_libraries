@@ -58,8 +58,6 @@ F:/RTES_CEP/build/esp-idf/json/libjson.a
 F:/RTES_CEP/build/esp-idf/mqtt/libmqtt.a
 F:/RTES_CEP/build/esp-idf/perfmon/libperfmon.a
 F:/RTES_CEP/build/esp-idf/spiffs/libspiffs.a
-F:/RTES_CEP/build/esp-idf/touch_element/libtouch_element.a
-F:/RTES_CEP/build/esp-idf/ulp/libulp.a
-F:/RTES_CEP/build/esp-idf/usb/libusb.a
 F:/RTES_CEP/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+F:/RTES_CEP/build/esp-idf/cjson/libcjson.a
 F:/RTES_CEP/build/esp-idf/main/libmain.a

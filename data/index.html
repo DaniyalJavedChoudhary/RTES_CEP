@@ -296,10 +296,10 @@
                 </div>
 
                 <div class="button-group">
-                    <button class="btn btn-start" onclick="startPump(1)">
+                    <button class="btn btn-start" onclick="pump1Start()">
                         ▶ Start Pump 1
                     </button>
-                    <button class="btn btn-stop" onclick="stopPump(1)">
+                    <button class="btn btn-stop" onclick="pump1Stop()">
                         ⏹ Stop Pump 1
                     </button>
                 </div>
@@ -338,10 +338,10 @@
                 </div>
 
                 <div class="button-group">
-                    <button class="btn btn-start" onclick="startPump(2)">
+                    <button class="btn btn-start" onclick="pump2Start()">
                         ▶ Start Pump 2
                     </button>
-                    <button class="btn btn-stop" onclick="stopPump(2)">
+                    <button class="btn btn-stop" onclick="pump2Stop()">
                         ⏹ Stop Pump 2
                     </button>
                 </div>
@@ -399,6 +399,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script>
+        // Pump control functions
+        function pump1Start() { fetch("/pump1/on"); }
+        function pump1Stop()  { fetch("/pump1/off"); }
+        function pump2Start() { fetch("/pump2/on"); }
+        function pump2Stop()  { fetch("/pump2/off"); }
+
+
         // Chart setup
         const ctx = document.getElementById('flowChart').getContext('2d');
         const maxDataPoints = 30;
