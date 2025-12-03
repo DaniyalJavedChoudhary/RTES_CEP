@@ -288,12 +288,7 @@
                     <div class="pump-status off" id="pump1-status">PUMP OFF</div>
                 </div>
 
-                <div class="controls">
-                    <div class="input-group">
-                        <label for="amount1">Target Amount (Liters)</label>
-                        <input type="number" id="amount1" min="0" max="500" value="0" step="0.1">
-                    </div>
-                </div>
+                <!-- Removed user target input for Tank 1 -->
 
                 <div class="button-group">
                     <button class="btn btn-start" onclick="pump1Start()">
@@ -307,20 +302,14 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-label">Current Flow Rate</div>
-                        <div class="info-value" id="flow1">0.00<span class="info-unit">L/min</span></div>
+                        <div class="info-value" id="flow1">0.00<span class="info-unit">mL/min</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Dispensed</div>
-                        <div class="info-value" id="dispensed1">0.00<span class="info-unit">L</span></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Target</div>
-                        <div class="info-value" id="target1">0.00<span class="info-unit">L</span></div>
+                        <div class="info-value" id="dispensed1">0.00<span class="info-unit">mL</span></div>
                     </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress1" style="width: 0%"></div>
-                </div>
+                <!-- Removed progress bar tied to user target for Tank 1 -->
             </div>
 
             <!-- Input Tank 2 -->
@@ -330,12 +319,7 @@
                     <div class="pump-status off" id="pump2-status">PUMP OFF</div>
                 </div>
 
-                <div class="controls">
-                    <div class="input-group">
-                        <label for="amount2">Target Amount (Liters)</label>
-                        <input type="number" id="amount2" min="0" max="500" value="0" step="0.1">
-                    </div>
-                </div>
+                <!-- Removed user target input for Tank 2 -->
 
                 <div class="button-group">
                     <button class="btn btn-start" onclick="pump2Start()">
@@ -349,20 +333,14 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-label">Current Flow Rate</div>
-                        <div class="info-value" id="flow2">0.00<span class="info-unit">L/min</span></div>
+                        <div class="info-value" id="flow2">0.00<span class="info-unit">mL/min</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Dispensed</div>
-                        <div class="info-value" id="dispensed2">0.00<span class="info-unit">L</span></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Target</div>
-                        <div class="info-value" id="target2">0.00<span class="info-unit">L</span></div>
+                        <div class="info-value" id="dispensed2">0.00<span class="info-unit">mL</span></div>
                     </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress2" style="width: 0%"></div>
-                </div>
+                <!-- Removed progress bar tied to user target for Tank 2 -->
             </div>
 
             <!-- Output Tank -->
@@ -374,15 +352,15 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-label">Total Received</div>
-                        <div class="info-value" id="output-total">0.00<span class="info-unit">L</span></div>
+                        <div class="info-value" id="output-total">0.00<span class="info-unit">mL</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Current Level</div>
-                        <div class="info-value" id="output-level">500<span class="info-unit">L</span></div>
+                        <div class="info-value" id="output-level">0.00<span class="info-unit">mL</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Capacity</div>
-                        <div class="info-value">2000<span class="info-unit">L</span></div>
+                        <div class="info-value">1500<span class="info-unit">mL</span></div>
                     </div>
                 </div>
             </div>
@@ -414,7 +392,7 @@
             labels: [],
             datasets: [
                 {
-                    label: 'Tank 1 Flow Rate (L/min)',
+                    label: 'Tank 1 Flow Rate (mL/min)',
                     data: [],
                     borderColor: '#10b981',
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',
@@ -422,7 +400,7 @@
                     fill: true
                 },
                 {
-                    label: 'Tank 2 Flow Rate (L/min)',
+                    label: 'Tank 2 Flow Rate (mL/min)',
                     data: [],
                     borderColor: '#667eea',
                     backgroundColor: 'rgba(102, 126, 234, 0.1)',
@@ -449,7 +427,7 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Flow Rate (L/min)'
+                            text: 'Flow Rate (mL/min)'
                         }
                     },
                     x: {
@@ -470,14 +448,12 @@
             tank1: {
                 pumpOn: false,
                 flowRate: 0,
-                dispensed: 0,
-                target: 0
+                dispensed: 0
             },
             tank2: {
                 pumpOn: false,
                 flowRate: 0,
-                dispensed: 0,
-                target: 0
+                dispensed: 0
             },
             output: {
                 total: 0,
@@ -485,61 +461,10 @@
             }
         };
 
-        // Start pump function
-        function startPump(tankId) {
-            const amountInput = document.getElementById(`amount${tankId}`);
-            const targetAmount = parseFloat(amountInput.value);
-
-            if (targetAmount <= 0) {
-                alert('Please enter a valid target amount greater than 0');
-                return;
-            }
-
-            if (targetAmount > 500) {
-                alert('Maximum target amount is 500 liters');
-                return;
-            }
-
-            // Send command to ESP32
-            fetch(`/api/pump/start`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    tank_id: tankId,
-                    target_amount: targetAmount
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    systemState[`tank${tankId}`].pumpOn = true;
-                    systemState[`tank${tankId}`].target = targetAmount;
-                    systemState[`tank${tankId}`].dispensed = 0;
-                    
-                    updatePumpStatus(tankId, true);
-                    document.getElementById(`target${tankId}`).innerHTML = 
-                        targetAmount.toFixed(2) + '<span class="info-unit">L</span>';
-                }
-            })
-            .catch(err => console.error('Error:', err));
-        }
+        // Removed startPump with user target; buttons call simple on/off endpoints
 
         // Stop pump function
-        function stopPump(tankId) {
-            fetch(`/api/pump/stop`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ tank_id: tankId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    systemState[`tank${tankId}`].pumpOn = false;
-                    updatePumpStatus(tankId, false);
-                }
-            })
-            .catch(err => console.error('Error:', err));
-        }
+        // Removed stopPump API usage; buttons call simple on/off endpoints
 
         // Update pump status display
         function updatePumpStatus(tankId, isOn) {
@@ -581,15 +506,11 @@
                     systemState.tank1.pumpOn = data.tank1.pump_on || false;
 
                     document.getElementById('flow1').innerHTML = 
-                        systemState.tank1.flowRate.toFixed(2) + '<span class="info-unit">L/min</span>';
+                        systemState.tank1.flowRate.toFixed(2) + '<span class="info-unit">mL/min</span>';
                     document.getElementById('dispensed1').innerHTML = 
-                        systemState.tank1.dispensed.toFixed(2) + '<span class="info-unit">L</span>';
+                        systemState.tank1.dispensed.toFixed(2) + '<span class="info-unit">mL</span>';
 
-                    // Update progress bar
-                    if (systemState.tank1.target > 0) {
-                        const progress = (systemState.tank1.dispensed / systemState.tank1.target) * 100;
-                        document.getElementById('progress1').style.width = Math.min(progress, 100) + '%';
-                    }
+                    // Progress removed; no target tracking
 
                     // Update Tank 2
                     systemState.tank2.flowRate = data.tank2.flow_rate || 0;
@@ -597,24 +518,20 @@
                     systemState.tank2.pumpOn = data.tank2.pump_on || false;
 
                     document.getElementById('flow2').innerHTML = 
-                        systemState.tank2.flowRate.toFixed(2) + '<span class="info-unit">L/min</span>';
+                        systemState.tank2.flowRate.toFixed(2) + '<span class="info-unit">mL/min</span>';
                     document.getElementById('dispensed2').innerHTML = 
-                        systemState.tank2.dispensed.toFixed(2) + '<span class="info-unit">L</span>';
+                        systemState.tank2.dispensed.toFixed(2) + '<span class="info-unit">mL</span>';
 
-                    // Update progress bar
-                    if (systemState.tank2.target > 0) {
-                        const progress = (systemState.tank2.dispensed / systemState.tank2.target) * 100;
-                        document.getElementById('progress2').style.width = Math.min(progress, 100) + '%';
-                    }
+                    // Progress removed; no target tracking
 
                     // Update Output Tank
                     systemState.output.total = (systemState.tank1.dispensed + systemState.tank2.dispensed);
                     systemState.output.level = 500 + systemState.output.total;
 
                     document.getElementById('output-total').innerHTML = 
-                        systemState.output.total.toFixed(2) + '<span class="info-unit">L</span>';
+                        systemState.output.total.toFixed(2) + '<span class="info-unit">mL</span>';
                     document.getElementById('output-level').innerHTML = 
-                        systemState.output.level.toFixed(2) + '<span class="info-unit">L</span>';
+                        systemState.output.level.toFixed(0) + '<span class="info-unit">mL</span>';
 
                     // Update pump status
                     updatePumpStatus(1, systemState.tank1.pumpOn);
