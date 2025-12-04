@@ -1,63 +1,169 @@
-F:/RTES_CEP/build/esp-idf/xtensa/libxtensa.a
-F:/RTES_CEP/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
-F:/RTES_CEP/build/esp-idf/efuse/libefuse.a
-F:/RTES_CEP/build/esp-idf/driver/libdriver.a
-F:/RTES_CEP/build/esp-idf/esp_pm/libesp_pm.a
-F:/RTES_CEP/build/esp-idf/mbedtls/libmbedtls.a
-F:/RTES_CEP/build/esp-idf/esp_app_format/libesp_app_format.a
-F:/RTES_CEP/build/esp-idf/bootloader_support/libbootloader_support.a
-F:/RTES_CEP/build/esp-idf/esp_partition/libesp_partition.a
-F:/RTES_CEP/build/esp-idf/app_update/libapp_update.a
-F:/RTES_CEP/build/esp-idf/esp_mm/libesp_mm.a
-F:/RTES_CEP/build/esp-idf/spi_flash/libspi_flash.a
-F:/RTES_CEP/build/esp-idf/pthread/libpthread.a
-F:/RTES_CEP/build/esp-idf/esp_system/libesp_system.a
-F:/RTES_CEP/build/esp-idf/esp_rom/libesp_rom.a
-F:/RTES_CEP/build/esp-idf/hal/libhal.a
-F:/RTES_CEP/build/esp-idf/log/liblog.a
-F:/RTES_CEP/build/esp-idf/heap/libheap.a
-F:/RTES_CEP/build/esp-idf/soc/libsoc.a
-F:/RTES_CEP/build/esp-idf/esp_hw_support/libesp_hw_support.a
-F:/RTES_CEP/build/esp-idf/freertos/libfreertos.a
-F:/RTES_CEP/build/esp-idf/newlib/libnewlib.a
-F:/RTES_CEP/build/esp-idf/cxx/libcxx.a
-F:/RTES_CEP/build/esp-idf/esp_common/libesp_common.a
-F:/RTES_CEP/build/esp-idf/esp_timer/libesp_timer.a
-F:/RTES_CEP/build/esp-idf/app_trace/libapp_trace.a
-F:/RTES_CEP/build/esp-idf/esp_event/libesp_event.a
-F:/RTES_CEP/build/esp-idf/nvs_flash/libnvs_flash.a
-F:/RTES_CEP/build/esp-idf/esp_phy/libesp_phy.a
-F:/RTES_CEP/build/esp-idf/vfs/libvfs.a
-F:/RTES_CEP/build/esp-idf/lwip/liblwip.a
-F:/RTES_CEP/build/esp-idf/esp_netif/libesp_netif.a
-F:/RTES_CEP/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
-F:/RTES_CEP/build/esp-idf/esp_coex/libesp_coex.a
-F:/RTES_CEP/build/esp-idf/esp_wifi/libesp_wifi.a
-F:/RTES_CEP/build/esp-idf/unity/libunity.a
-F:/RTES_CEP/build/esp-idf/cmock/libcmock.a
-F:/RTES_CEP/build/esp-idf/console/libconsole.a
-F:/RTES_CEP/build/esp-idf/http_parser/libhttp_parser.a
-F:/RTES_CEP/build/esp-idf/esp-tls/libesp-tls.a
-F:/RTES_CEP/build/esp-idf/esp_adc/libesp_adc.a
-F:/RTES_CEP/build/esp-idf/esp_eth/libesp_eth.a
-F:/RTES_CEP/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
-F:/RTES_CEP/build/esp-idf/esp_hid/libesp_hid.a
-F:/RTES_CEP/build/esp-idf/tcp_transport/libtcp_transport.a
-F:/RTES_CEP/build/esp-idf/esp_http_client/libesp_http_client.a
-F:/RTES_CEP/build/esp-idf/esp_http_server/libesp_http_server.a
-F:/RTES_CEP/build/esp-idf/esp_https_ota/libesp_https_ota.a
-F:/RTES_CEP/build/esp-idf/esp_lcd/libesp_lcd.a
-F:/RTES_CEP/build/esp-idf/protobuf-c/libprotobuf-c.a
-F:/RTES_CEP/build/esp-idf/protocomm/libprotocomm.a
-F:/RTES_CEP/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
-F:/RTES_CEP/build/esp-idf/espcoredump/libespcoredump.a
-F:/RTES_CEP/build/esp-idf/wear_levelling/libwear_levelling.a
-F:/RTES_CEP/build/esp-idf/sdmmc/libsdmmc.a
-F:/RTES_CEP/build/esp-idf/fatfs/libfatfs.a
-F:/RTES_CEP/build/esp-idf/json/libjson.a
-F:/RTES_CEP/build/esp-idf/mqtt/libmqtt.a
-F:/RTES_CEP/build/esp-idf/perfmon/libperfmon.a
-F:/RTES_CEP/build/esp-idf/spiffs/libspiffs.a
-F:/RTES_CEP/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
-F:/RTES_CEP/build/esp-idf/cjson/libcjson.a
-F:/RTES_CEP/build/esp-idf/main/libmain.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/xtensa/libxtensa.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/cxx/libcxx.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/newlib/libnewlib.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/freertos/libfreertos.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_hw_support/libesp_hw_support.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/heap/libheap.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/log/liblog.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/soc/libsoc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/hal/libhal.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_rom/libesp_rom.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_common/libesp_common.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_system/libesp_system.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/xtensa/libxtensa.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/spi_flash/libspi_flash.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/bootloader_support/libbootloader_support.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/libmbedtls.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_pm/libesp_pm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_gpio/libesp_driver_gpio.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_timer/libesp_timer.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/lwip/liblwip.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/vfs/libvfs.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_uart/libesp_driver_uart.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_mm/libesp_mm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/vfs/libvfs.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/mbedtls/library/libmbedtls.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/mbedtls/library/libmbedx509.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_security/libesp_security.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/efuse/libefuse.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_partition/libesp_partition.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/app_update/libapp_update.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_app_format/libesp_app_format.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/driver/libdriver.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_spi/libesp_driver_spi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_mcpwm/libesp_driver_mcpwm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_i2s/libesp_driver_i2s.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/sdmmc/libsdmmc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_twai/libesp_driver_twai.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_adc/libesp_adc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_http_client/libesp_http_client.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_event/libesp_event.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/tcp_transport/libtcp_transport.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp-tls/libesp-tls.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/http_parser/libhttp_parser.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_http_server/libesp_http_server.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/nvs_flash/libnvs_flash.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mbedtls/libmbedtls.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_wifi/libesp_wifi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_phy/libesp_phy.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_netif/libesp_netif.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_coex/libesp_coex.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_https_ota/libesp_https_ota.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_security/libesp_security.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/pthread/libpthread.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_gpio/libesp_driver_gpio.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_pm/libesp_pm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_app_format/libesp_app_format.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/app_update/libapp_update.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_partition/libesp_partition.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/efuse/libefuse.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/bootloader_support/libbootloader_support.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_mm/libesp_mm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/spi_flash/libspi_flash.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_system/libesp_system.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_common/libesp_common.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_rom/libesp_rom.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/hal/libhal.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/log/liblog.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/heap/libheap.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/soc/libsoc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_hw_support/libesp_hw_support.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/freertos/libfreertos.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/newlib/libnewlib.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/pthread/libpthread.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/cxx/libcxx.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_timer/libesp_timer.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_uart/libesp_driver_uart.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/app_trace/libapp_trace.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_event/libesp_event.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/nvs_flash/libnvs_flash.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_phy/libesp_phy.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/lwip/liblwip.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_netif/libesp_netif.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_coex/libesp_coex.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_wifi/libesp_wifi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_spi/libesp_driver_spi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/unity/libunity.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/cmock/libcmock.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/unity/libunity.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/console/libconsole.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_mcpwm/libesp_driver_mcpwm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_i2s/libesp_driver_i2s.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/sdmmc/libsdmmc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_twai/libesp_driver_twai.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/driver/libdriver.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/http_parser/libhttp_parser.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp-tls/libesp-tls.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_adc/libesp_adc.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_cam/libesp_driver_cam.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_driver_touch_sens/libesp_driver_touch_sens.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_eth/libesp_eth.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_hid/libesp_hid.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/tcp_transport/libtcp_transport.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_http_client/libesp_http_client.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_http_server/libesp_http_server.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_https_ota/libesp_https_ota.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_https_server/libesp_https_server.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_lcd/libesp_lcd.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/protobuf-c/libprotobuf-c.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/protocomm/libprotocomm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/protobuf-c/libprotobuf-c.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/console/libconsole.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/protocomm/libprotocomm.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp_https_server/libesp_https_server.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/espcoredump/libespcoredump.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/wear_levelling/libwear_levelling.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/fatfs/libfatfs.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/wear_levelling/libwear_levelling.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/json/libjson.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mqtt/libmqtt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/nvs_sec_provider/libnvs_sec_provider.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/perfmon/libperfmon.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/rt/librt.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/spiffs/libspiffs.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/json/libjson.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/cjson/libcjson.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp-idf-lib__ultrasonic/libesp-idf-lib__ultrasonic.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mateusglucas__yf_s201/libmateusglucas__yf_s201.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/vgerwen__hcsr04/libvgerwen__hcsr04.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/main/libmain.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/spiffs/libspiffs.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/cjson/libcjson.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/esp-idf-lib__ultrasonic/libesp-idf-lib__ultrasonic.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/mateusglucas__yf_s201/libmateusglucas__yf_s201.a
+E:/_Documents/VS Code/RTES/RTES_CEP/build/esp-idf/vgerwen__hcsr04/libvgerwen__hcsr04.a

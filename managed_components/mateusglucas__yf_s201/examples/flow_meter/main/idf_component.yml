@@ -1,0 +1,4 @@
+dependencies:
+    mateusglucas/yf_s201:
+        version: "*"
+        override_path: '../../../'

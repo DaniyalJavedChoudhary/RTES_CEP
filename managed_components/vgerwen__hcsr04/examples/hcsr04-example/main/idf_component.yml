@@ -1,0 +1,4 @@
+dependencies:
+  vgerwen/hcsr04:
+    version: "*"
+    override_path: "../../../"
