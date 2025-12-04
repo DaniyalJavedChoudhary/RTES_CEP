@@ -24,14 +24,15 @@
 #include "esp_netif.h"
 #include "cJSON.h"
 #include <stdbool.h>
-
+#include "ultrasonic.h"
+#include <stdatomic.h>
 
 
 static const char *TAG = "WEB";
 
 // ------------------------ PUMPS GPIO DEFINES ------------------------
-#define PUMP1_GPIO  18    // change as needed; remember to wire driver transistor/relay
-#define PUMP2_GPIO  19    // change as needed; remember to wire driver transistor/relay
+#define PUMP1_GPIO  18   
+#define PUMP2_GPIO  19 
 /* Set to 0 if your pump driver is active-low (drive 0 to turn ON).
     Set to 1 if your driver is active-high (drive 1 to turn ON). */
 #define PUMP_ACTIVE_LEVEL 0
@@ -40,6 +41,21 @@ static const char *TAG = "WEB";
     set this to 1. Otherwise set to 0 to always drive the pin high/low. */
 #define PUMP_OPEN_DRAIN 1
 
+#define FLOW_GPIO            GPIO_NUM_17 
+#define PULSES_PER_LITER     450.0f
+#define MEASURE_INTERVAL_MS  2000
+
+/* Flow sensor state (ISR-safe) */
+static atomic_uint_fast32_t s_pulse_count = 0;
+/* Forward declaration of ISR so it can be referenced from flow_init (defined later) */
+static void IRAM_ATTR flow_pulse_isr(void *arg);
+typedef struct {
+    float last_lpm;
+    float last_liters;
+    uint32_t last_pulses;
+} flow_state_t;
+
+static flow_state_t s_flow_state = {0};
 
 // ------------------------ GPIO INIT FOR DOSING PUMPS ------------------------
 static void init_pumps(void)
@@ -72,6 +88,22 @@ static void init_pumps(void)
     }
 
     ESP_LOGI("PUMP", "Pumps initialized (GPIO %d, %d)", PUMP1_GPIO, PUMP2_GPIO);
+}
+
+/* Call this once at startup to initialize */
+void flow_init(void)
+{
+    gpio_config_t io_conf = {
+        .pin_bit_mask = (1ULL << FLOW_GPIO),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_POSEDGE
+    };
+    gpio_config(&io_conf);
+
+    gpio_install_isr_service(0); // 0 = default iram flags
+    gpio_isr_handler_add(FLOW_GPIO, flow_pulse_isr, NULL);
 }
 
 /* Helper: set pump state (true == ON, false == OFF). Returns ESP_OK on success */
@@ -588,6 +620,75 @@ static void pumps_task(void *pvParameter)
     vTaskDelete(NULL);
 }
 
+static const char *US_TAG = "ULTRASONIC_APP";
+static void us_sensor_task(void *pvParameter)
+{
+    ultrasonic_sensor_t sensor = {
+        .trigger_pin = GPIO_NUM_33, // change to your TRIG pin
+        .echo_pin = GPIO_NUM_32     // change to your ECHO pin
+    };
+
+    esp_err_t rc = ultrasonic_init(&sensor);
+    if (rc != ESP_OK) {
+        ESP_LOGE(US_TAG, "ultrasonic_init failed: %s", esp_err_to_name(rc));
+        vTaskDelete(NULL);
+        return;
+    }
+
+    while (1) {
+        uint32_t distance_cm = 0;
+        // limit to 400 cm (4 m) for example
+        rc = ultrasonic_measure_cm(&sensor, 400, &distance_cm);
+        if (rc == ESP_OK) {
+            ESP_LOGI(US_TAG, "Distance: %u cm", distance_cm);
+        } else {
+            ESP_LOGW(US_TAG, "ultrasonic_measure_cm error: %s", esp_err_to_name(rc));
+        }
+        vTaskDelay(pdMS_TO_TICKS(1000)); // sample every 1 s
+    }
+    
+}
+
+static const char *FM_TAG = "FLOW";
+
+/* ISR: increment atomic pulse counter (IRAM_ATTR for ISR reliability) */
+static void IRAM_ATTR flow_pulse_isr(void *arg)
+{
+    atomic_fetch_add_explicit(&s_pulse_count, 1u, memory_order_relaxed);
+}
+
+/* Measurement task: snapshot-and-reset the atomic counter periodically and compute L/min */
+void flow_task(void *pvParameter)
+{
+    const TickType_t interval = pdMS_TO_TICKS(MEASURE_INTERVAL_MS);
+    const float seconds = MEASURE_INTERVAL_MS / 1000.0f;
+
+    while (1) {
+        vTaskDelay(interval);
+
+        uint32_t pulses = atomic_exchange_explicit(&s_pulse_count, 0u, memory_order_acq_rel);
+
+        float liters = pulses / PULSES_PER_LITER; // liters during interval
+        float lpm = (liters * 60.0f) / seconds;   // liters per minute
+
+        /* Update published state for readers */
+        s_flow_state.last_pulses = pulses;
+        s_flow_state.last_liters = liters;
+        s_flow_state.last_lpm = lpm;
+
+        ESP_LOGI(FM_TAG, "pulses=%u freq=%.2fHz L=%.4f flow=%.3f L/min", pulses, (pulses / seconds), liters, lpm);
+    }
+}
+
+/* Accessor: get latest flow values. Because we reset the counter in the task, callers
+   should call this after the first measurement interval has elapsed to get meaningful data. */
+void flow_get_latest(float *out_lpm, uint32_t *out_pulses, float *out_liters)
+{
+    if (out_pulses) *out_pulses = s_flow_state.last_pulses;
+    if (out_liters) *out_liters = s_flow_state.last_liters;
+    if (out_lpm) *out_lpm = s_flow_state.last_lpm;
+}
+
 static void startup_task(void *pvParameter)
 {
     ESP_LOGI(TAG, "startup_task: begin");
@@ -616,6 +717,11 @@ static void startup_task(void *pvParameter)
     r = xTaskCreatePinnedToCore(pumps_task, "pumps", 4096, NULL, 5, NULL, tskNO_AFFINITY);
     if (r != pdPASS) ESP_LOGW(TAG, "Failed to create pumps_task");
 
+    r = xTaskCreatePinnedToCore(us_sensor_task, "us_sensor", 4096, NULL, 5, NULL, tskNO_AFFINITY);
+    if (r != pdPASS) ESP_LOGW(TAG, "Failed to create us_sensor task");
+
+    xTaskCreatePinnedToCore(flow_task, "flow", 4096, NULL, 5, NULL, tskNO_AFFINITY);
+
     ESP_LOGI(TAG, "startup_task: all init tasks created, deleting self");
     vTaskDelete(NULL);
 }
@@ -623,6 +729,7 @@ static void startup_task(void *pvParameter)
 // ------------------------ APP MAIN ------------------------
 void app_main(void)
 {
+    flow_init();
     BaseType_t r = xTaskCreatePinnedToCore(startup_task, "startup", 8192, NULL, 5, NULL, tskNO_AFFINITY);
     if (r != pdPASS) {
         ESP_LOGE(TAG, "Failed to create startup task");

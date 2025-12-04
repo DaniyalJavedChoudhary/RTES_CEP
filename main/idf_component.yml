@@ -17,3 +17,6 @@ dependencies:
   # Use the IDF-provided cJSON component (avoid fetching from registry)
   # If you need a specific external cJSON, replace the line above with
   # username/component: "<version>" and adjust as needed.
+  vgerwen/hcsr04: ^1.0.0
+  mateusglucas/yf_s201: ^1.0.2
+  esp-idf-lib/ultrasonic: ^1.0.7

@@ -1,3 +1,11 @@
 {
-    "idf.pythonInstallPath": "F:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe"
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "C_Cpp.intelliSenseEngine": "Default",
+  "files.associations": {
+    "*.c": "c",
+    "*.h": "c"
+  },
+"idf.pythonInstallPath": "C:\\Users\\abdul\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
+"idf.portWin": "COM8",
+"idf.flashType": "UART"
 }
