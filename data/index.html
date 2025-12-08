@@ -288,8 +288,6 @@
                     <div class="pump-status off" id="pump1-status">PUMP OFF</div>
                 </div>
 
-                <!-- Removed user target input for Tank 1 -->
-
                 <div class="button-group">
                     <button class="btn btn-start" onclick="pump1Start()">
                         ▶ Start Pump 1
@@ -302,45 +300,9 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-label">Current Flow Rate</div>
-                        <div class="info-value" id="flow1">0.00<span class="info-unit">mL/min</span></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Dispensed</div>
-                        <div class="info-value" id="dispensed1">0.00<span class="info-unit">mL</span></div>
+                        <div class="info-value" id="flow1">0.00<span class="info-unit">L/min</span></div>
                     </div>
                 </div>
-                <!-- Removed progress bar tied to user target for Tank 1 -->
-            </div>
-
-            <!-- Input Tank 2 -->
-            <div class="tank-section">
-                <div class="tank-header">
-                    <div class="tank-title">💧 Input Tank 2</div>
-                    <div class="pump-status off" id="pump2-status">PUMP OFF</div>
-                </div>
-
-                <!-- Removed user target input for Tank 2 -->
-
-                <div class="button-group">
-                    <button class="btn btn-start" onclick="pump2Start()">
-                        ▶ Start Pump 2
-                    </button>
-                    <button class="btn btn-stop" onclick="pump2Stop()">
-                        ⏹ Stop Pump 2
-                    </button>
-                </div>
-
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="info-label">Current Flow Rate</div>
-                        <div class="info-value" id="flow2">0.00<span class="info-unit">mL/min</span></div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-label">Dispensed</div>
-                        <div class="info-value" id="dispensed2">0.00<span class="info-unit">mL</span></div>
-                    </div>
-                </div>
-                <!-- Removed progress bar tied to user target for Tank 2 -->
             </div>
 
             <!-- Output Tank -->
@@ -352,15 +314,33 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <div class="info-label">Total Received</div>
-                        <div class="info-value" id="output-total">0.00<span class="info-unit">mL</span></div>
+                        <div class="info-value" id="output-total">0.00<span class="info-unit">L</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Current Level</div>
-                        <div class="info-value" id="output-level">0.00<span class="info-unit">mL</span></div>
+                        <div class="info-value" id="output-level">0.00<span class="info-unit">L</span></div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">Capacity</div>
-                        <div class="info-value">1500<span class="info-unit">mL</span></div>
+                        <div class="info-value">2.40<span class="info-unit">L</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensor Data Section -->
+            <div class="tank-section">
+                <div class="tank-header">
+                    <div class="tank-title">📡 Sensor Readings</div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">Pulse Count</div>
+                        <div class="info-value" id="sensor-pulses">0<span class="info-unit">pulses</span></div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Ultrasonic Distance</div>
+                        <div class="info-value" id="sensor-distance">0<span class="info-unit">cm</span></div>
                     </div>
                 </div>
             </div>
@@ -383,7 +363,6 @@
         function pump2Start() { fetch("/pump2/on"); }
         function pump2Stop()  { fetch("/pump2/off"); }
 
-
         // Chart setup
         const ctx = document.getElementById('flowChart').getContext('2d');
         const maxDataPoints = 30;
@@ -392,20 +371,14 @@
             labels: [],
             datasets: [
                 {
-                    label: 'Tank 1 Flow Rate (mL/min)',
+                    label: 'Flow Rate (L/min)',
                     data: [],
                     borderColor: '#10b981',
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',
                     tension: 0.4,
-                    fill: true
-                },
-                {
-                    label: 'Tank 2 Flow Rate (mL/min)',
-                    data: [],
-                    borderColor: '#667eea',
-                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                    tension: 0.4,
-                    fill: true
+                    fill: true,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
                 }
             ]
         };
@@ -425,15 +398,10 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Flow Rate (mL/min)'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Time'
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2);
+                            }
                         }
                     }
                 },
@@ -447,24 +415,13 @@
         let systemState = {
             tank1: {
                 pumpOn: false,
-                flowRate: 0,
-                dispensed: 0
-            },
-            tank2: {
-                pumpOn: false,
-                flowRate: 0,
-                dispensed: 0
+                flowRate: 0
             },
             output: {
                 total: 0,
-                level: 500
+                level: 0
             }
         };
-
-        // Removed startPump with user target; buttons call simple on/off endpoints
-
-        // Stop pump function
-        // Removed stopPump API usage; buttons call simple on/off endpoints
 
         // Update pump status display
         function updatePumpStatus(tankId, isOn) {
@@ -481,73 +438,107 @@
         }
 
         // Update chart with new data
-        function updateChart(time) {
+        function updateChart(time, flowRate) {
             if (chartData.labels.length >= maxDataPoints) {
                 chartData.labels.shift();
                 chartData.datasets[0].data.shift();
-                chartData.datasets[1].data.shift();
             }
 
             chartData.labels.push(time);
-            chartData.datasets[0].data.push(systemState.tank1.flowRate);
-            chartData.datasets[1].data.push(systemState.tank2.flowRate);
+            chartData.datasets[0].data.push(Number(flowRate));
 
-            flowChart.update();
+            flowChart.update('none'); // Update without animation for smoothness
+        }
+
+        // Fetch flow sensor data
+        function fetchFlowData() {
+            console.log('Fetching /api/flow...');
+            fetch('/api/flow')
+                .then(response => {
+                    console.log('Flow response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Flow data received:', data);
+                    if (data && typeof data.flow_rate_lpm === 'number') {
+                        // Update Input Tank 1 flow rate
+                        document.getElementById('flow1').textContent = 
+                            data.flow_rate_lpm.toFixed(3);
+                        document.getElementById('sensor-pulses').textContent = 
+                            data.pulses;
+                        
+                        // Update chart with flow data
+                        const now = new Date();
+                        const timeStr = now.getHours().toString().padStart(2, '0') + ':' +
+                                       now.getMinutes().toString().padStart(2, '0') + ':' +
+                                       now.getSeconds().toString().padStart(2, '0');
+                        updateChart(timeStr, data.flow_rate_lpm);
+                    } else {
+                        console.error('Invalid flow data structure:', data);
+                    }
+                })
+                .catch(err => console.error('Error fetching flow data:', err));
+        }
+
+        // Fetch ultrasonic sensor data
+        function fetchUltrasonicData() {
+            console.log('Fetching /api/ultrasonic...');
+            fetch('/api/ultrasonic')
+                .then(response => {
+                    console.log('Ultrasonic response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Ultrasonic data received:', data);
+                    if (data && typeof data.distance_cm === 'number' && typeof data.litre === 'number') {
+                        document.getElementById('sensor-distance').textContent = 
+                            data.distance_cm;
+                        
+                        // Update output tank with litre value
+                        systemState.output.total = data.litre;
+                        systemState.output.level = data.litre;
+                        document.getElementById('output-total').textContent = 
+                            data.litre.toFixed(2);
+                        document.getElementById('output-level').textContent = 
+                            data.litre.toFixed(2);
+                    } else {
+                        console.error('Invalid ultrasonic data structure:', data);
+                    }
+                })
+                .catch(err => console.error('Error fetching ultrasonic data:', err));
+        }
+
+        // Fetch pump status
+        function fetchPumpStatus() {
+            // Fetch pump 1 status
+            fetch('http://192.168.4.1/pump1/status')
+                .then(response => response.json())
+                .then(data => {
+                    systemState.tank1.pumpOn = (data.state === "ON");
+                    updatePumpStatus(1, systemState.tank1.pumpOn);
+                })
+                .catch(err => console.error('Error fetching pump1 status:', err));
         }
 
         // Fetch sensor data from ESP32
         function fetchSensorData() {
-            fetch('/api/sensors')
-                .then(response => response.json())
-                .then(data => {
-                    // Update Tank 1
-                    systemState.tank1.flowRate = data.tank1.flow_rate || 0;
-                    systemState.tank1.dispensed = data.tank1.dispensed || 0;
-                    systemState.tank1.pumpOn = data.tank1.pump_on || false;
-
-                    document.getElementById('flow1').innerHTML = 
-                        systemState.tank1.flowRate.toFixed(2) + '<span class="info-unit">mL/min</span>';
-                    document.getElementById('dispensed1').innerHTML = 
-                        systemState.tank1.dispensed.toFixed(2) + '<span class="info-unit">mL</span>';
-
-                    // Progress removed; no target tracking
-
-                    // Update Tank 2
-                    systemState.tank2.flowRate = data.tank2.flow_rate || 0;
-                    systemState.tank2.dispensed = data.tank2.dispensed || 0;
-                    systemState.tank2.pumpOn = data.tank2.pump_on || false;
-
-                    document.getElementById('flow2').innerHTML = 
-                        systemState.tank2.flowRate.toFixed(2) + '<span class="info-unit">mL/min</span>';
-                    document.getElementById('dispensed2').innerHTML = 
-                        systemState.tank2.dispensed.toFixed(2) + '<span class="info-unit">mL</span>';
-
-                    // Progress removed; no target tracking
-
-                    // Update Output Tank
-                    systemState.output.total = (systemState.tank1.dispensed + systemState.tank2.dispensed);
-                    systemState.output.level = 500 + systemState.output.total;
-
-                    document.getElementById('output-total').innerHTML = 
-                        systemState.output.total.toFixed(2) + '<span class="info-unit">mL</span>';
-                    document.getElementById('output-level').innerHTML = 
-                        systemState.output.level.toFixed(0) + '<span class="info-unit">mL</span>';
-
-                    // Update pump status
-                    updatePumpStatus(1, systemState.tank1.pumpOn);
-                    updatePumpStatus(2, systemState.tank2.pumpOn);
-
-                    // Update chart
-                    const currentTime = new Date().toLocaleTimeString();
-                    updateChart(currentTime);
-                })
-                .catch(err => console.error('Error fetching sensor data:', err));
+            console.log('=== Fetching sensor data ===');
+            fetchFlowData();
+            fetchUltrasonicData();
+            fetchPumpStatus();
         }
 
-        // Poll sensor data every second
-        setInterval(fetchSensorData, 1000);
+        // Poll sensor data every 2 seconds (matches MEASURE_INTERVAL_MS)
+        setInterval(fetchSensorData, 2000);
 
         // Initial fetch
+        console.log('Page loaded, starting initial fetch');
         fetchSensorData();
     </script>
 </body>

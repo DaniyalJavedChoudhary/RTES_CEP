@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <inttypes.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
@@ -49,6 +50,8 @@ static const char *TAG = "WEB";
 static atomic_uint_fast32_t s_pulse_count = 0;
 /* Forward declaration of ISR so it can be referenced from flow_init (defined later) */
 static void IRAM_ATTR flow_pulse_isr(void *arg);
+/* Forward declaration for flow accessor function */
+void flow_get_latest(float *out_lpm, uint32_t *out_pulses, float *out_liters);
 typedef struct {
     float last_lpm;
     float last_liters;
@@ -56,6 +59,10 @@ typedef struct {
 } flow_state_t;
 
 static flow_state_t s_flow_state = {0};
+
+/* Ultrasonic sensor state */
+static uint32_t s_ultrasonic_distance_cm = 0;
+static float s_ultrasonic_litre = 0.0f;
 
 // ------------------------ GPIO INIT FOR DOSING PUMPS ------------------------
 static void init_pumps(void)
@@ -265,6 +272,38 @@ static esp_err_t api_pump_start_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
+// GET /api/flow - returns current flow sensor data
+static esp_err_t api_flow_handler(httpd_req_t *req)
+{
+    ESP_LOGI(TAG, "api_flow_handler: GET /api/flow called");
+    float lpm = 0.0f, liters = 0.0f;
+    uint32_t pulses = 0;
+    flow_get_latest(&lpm, &pulses, &liters);
+
+    char buf[128];
+    snprintf(buf, sizeof(buf), 
+             "{\"flow_rate_lpm\":%.3f,\"liters\":%.4f,\"pulses\":%u}",
+             lpm, liters, (unsigned)pulses);
+    
+    ESP_LOGI(TAG, "api_flow_handler response: %s", buf);
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_sendstr(req, buf);
+    return ESP_OK;
+}
+
+// GET /api/ultrasonic - returns current ultrasonic distance and calculated litres
+static esp_err_t api_ultrasonic_handler(httpd_req_t *req)
+{
+    ESP_LOGI(TAG, "api_ultrasonic_handler: GET /api/ultrasonic called");
+    char buf[128];
+    snprintf(buf, sizeof(buf), "{\"distance_cm\":%u,\"litre\":%.2f}", (unsigned)s_ultrasonic_distance_cm, s_ultrasonic_litre);
+    
+    ESP_LOGI(TAG, "api_ultrasonic_handler response: %s", buf);
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_sendstr(req, buf);
+    return ESP_OK;
+}
+
 // Minimal /api/sensors handler: tells client that sensor data is not available
 static esp_err_t api_sensors_handler(httpd_req_t *req)
 {
@@ -349,6 +388,13 @@ static esp_err_t serve_static_file(httpd_req_t *req)
 
     if (uri == NULL) {
         httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "No URI");
+        return ESP_FAIL;
+    }
+
+    /* Don't serve static files for API endpoints - let them be handled by specific handlers */
+    if (strncmp(uri, "/api/", 5) == 0) {
+        ESP_LOGW(TAG, "serve_static_file: Rejecting API endpoint %s - should be handled by specific handler", uri);
+        httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "Not found");
         return ESP_FAIL;
     }
 
@@ -489,6 +535,23 @@ static httpd_handle_t start_server(void)
     rc = httpd_register_uri_handler(server, &api_sensors);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_sensors.uri, esp_err_to_name(rc));
 
+    // ---- API Flow Sensor ----
+    httpd_uri_t api_flow = {
+        .uri = "/api/flow",
+        .method = HTTP_GET,
+        .handler = api_flow_handler
+    };
+    rc = httpd_register_uri_handler(server, &api_flow);
+    if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_flow.uri, esp_err_to_name(rc));
+
+    // ---- API Ultrasonic Sensor ----
+    httpd_uri_t api_ultrasonic = {
+        .uri = "/api/ultrasonic",
+        .method = HTTP_GET,
+        .handler = api_ultrasonic_handler
+    };
+    rc = httpd_register_uri_handler(server, &api_ultrasonic);
+    if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_ultrasonic.uri, esp_err_to_name(rc));
 
     /* root handler */
     httpd_uri_t root = {
@@ -634,16 +697,22 @@ static void us_sensor_task(void *pvParameter)
         vTaskDelete(NULL);
         return;
     }
-
+    float litre = 0;
     while (1) {
         uint32_t distance_cm = 0;
         // limit to 400 cm (4 m) for example
         rc = ultrasonic_measure_cm(&sensor, 400, &distance_cm);
         if (rc == ESP_OK) {
-            ESP_LOGI(US_TAG, "Distance: %u cm", distance_cm);
+            s_ultrasonic_distance_cm = distance_cm;
+            ESP_LOGI(US_TAG, "Distance: %" PRIu32 " cm", distance_cm);
         } else {
             ESP_LOGW(US_TAG, "ultrasonic_measure_cm error: %s", esp_err_to_name(rc));
         }
+        // Calculate water volume: (tank_height - distance) * surface_area / 1000
+        // Tank height = 13 cm, Surface area = 188 cm²
+        litre = ((13.5f - (float)distance_cm) * 188.0f) / 1000.0f;
+        s_ultrasonic_litre = litre;
+        ESP_LOGI(US_TAG, "Litres: %.2f", litre);
         vTaskDelay(pdMS_TO_TICKS(1000)); // sample every 1 s
     }
     
@@ -652,7 +721,7 @@ static void us_sensor_task(void *pvParameter)
 static const char *FM_TAG = "FLOW";
 
 /* ISR: increment atomic pulse counter (IRAM_ATTR for ISR reliability) */
-static void IRAM_ATTR flow_pulse_isr(void *arg)
+static void flow_pulse_isr(void *arg)
 {
     atomic_fetch_add_explicit(&s_pulse_count, 1u, memory_order_relaxed);
 }
@@ -676,7 +745,7 @@ void flow_task(void *pvParameter)
         s_flow_state.last_liters = liters;
         s_flow_state.last_lpm = lpm;
 
-        ESP_LOGI(FM_TAG, "pulses=%u freq=%.2fHz L=%.4f flow=%.3f L/min", pulses, (pulses / seconds), liters, lpm);
+        ESP_LOGI(FM_TAG, "pulses=%" PRIu32 " freq=%.2fHz L=%.4f flow=%.3f L/min", pulses, (pulses / seconds), liters, lpm);
     }
 }
 
