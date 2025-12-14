@@ -1,0 +1,13 @@
+menu "HC SR04 menu"
+
+        config TRIGGER_PIN
+            int "GPIO pin number HC SR 04 Trigger pulse"
+            default 33
+            help
+                This option sets the ESP32 GPIO pin for HC SR04 trigger pin
+        config ECHO_PIN
+            int "GPIO pin number HC SR04 echo signal"
+            default 32
+            help
+                This option sets the ESP32 GPIO pin for the HC SR04 echo pin
+    endmenu

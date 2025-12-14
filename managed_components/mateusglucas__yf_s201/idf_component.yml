@@ -1,0 +1,6 @@
+dependencies:
+  idf:
+    version: '>=5.0'
+description: driver for YF-S201 water flow meter
+url: https://github.com/mateusglucas/esp-idf-components/tree/master/components/yf_s201
+version: 1.0.2
