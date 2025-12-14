@@ -1,0 +1,5690 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) wifi:wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (733) WEB: spiffs_task: mounted[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (733) wifi:[0;32mI (733) WEB: http_task: starting HTTP server[0m[0m
+wifi firmware version: 02461b5
+[0;32mI (753) wifi:wifi certification version: v7.0[0m
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (753) wifi:[0;32mI (763) WEB: http_task: HTTP server started[0m[0m
+config NVS flash: enabled
+[0;32mI (763) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (773) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (793) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (733) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (813) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (833) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (933) wifi:Total power save buffer number: 16[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (943) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (953) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (2713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (3723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (4733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (5633) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (5633) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (5673) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (5693) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;33mW (5743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (5773) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (6643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (6753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6923) wifi:<ba-add>idx:3 (ifx:1, f2:c6:4e:59:10:be), tid:5, ssn:0, winSize:64[0m
+[0;33mW (7763) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7763) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (7993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8003) wifi:<ba-add>idx:4 (ifx:1, f2:c6:4e:59:10:be), tid:1, ssn:0, winSize:64[0m
+[0;32mI (8003) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (8023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8023) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (8773) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8773) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (9783) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (9783) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (9823) WEB: pump1_off_handler: request received[0m
+[0;33mW (9833) WEB: pump_set_state: mismatch for pump 1 gpio 18 set=1 read=0 - retrying[0m
+[0;32mI (9853) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;32mI (9973) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9973) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9983) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (9993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (10643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (10793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (11803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (11983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (12003) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (12643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (12813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12873) WEB: pump1_off_handler: request received[0m
+[0;33mW (12873) WEB: pump_set_state: mismatch for pump 1 gpio 18 set=1 read=0 - retrying[0m
+[0;32mI (12903) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;33mW (13823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (13823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (13983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (14013) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (14643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (14833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (15843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (15973) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (16003) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (16643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (16853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (17863) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17863) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (17983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (18003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (18873) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (18873) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (19883) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (19883) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (19983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (20643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (20893) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (20893) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (21903) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (21903) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (21983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (22003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;32mI (22663) WEB: pump1_off_handler: request received[0m
+[0;32mI (22673) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;33mW (22913) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (22913) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (23923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (23923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (23983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24013) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (24643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (24923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (24923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (25933) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (25933) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (25983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (26003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (26943) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (26943) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (27953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (27953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (27983) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (27993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (28003) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (28013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (28643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (28963) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (28963) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (29973) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (29973) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (29983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (29983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (30003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (30003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (30013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (30643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (30983) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (30983) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (31983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (31983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;33mW (31993) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (31993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (31993) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (32003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (32023) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (32643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (33023) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (33023) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (33993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (33993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (34003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (34003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (34013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (34023) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (34023) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (34643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (35033) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (35033) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (35993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (35993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (36003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (36003) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (36013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (36043) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (36043) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (36643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (37053) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (37053) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (37983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (37993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (38003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (38003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (38013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (38063) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (38063) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (38643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (39073) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (39073) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (39993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (39993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (40003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (40003) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (40023) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (40083) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (40083) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (40643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (41093) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (41093) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (41993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (41993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (42003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (42003) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (42023) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (42103) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (42103) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (42643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (43113) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (43113) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (43503) WEB: pump1_on_handler: request reets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+WEB: wifi_task: wifi initializedWEB: wifi_task: wifi initializedWEB: wifi_task: wifi initializedWEB: wifi_task: wifi initialized[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0;32mI (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, old:<1,I (1223) wifi:new:<1,0>, ol, prof:1[0m
+[0;32mI (1223) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (1253) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (1333) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;32mI (1383) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;33mW (1703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (1963) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (1973) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (1973) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (1993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (1993) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2013) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2013) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2023) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2053) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2053) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2063) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2063) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2083) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2083) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2083) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2113) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2123) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2123) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2143) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2143) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2153) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2163) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2163) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2213) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2223) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2233) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) wifi:[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m[0m
+wifi driver task: 3ffc9dd0, prio:23, stack:6656, core=0[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (733) WEB: spiffs_task: mounted[0m
+[0;32mI (743) WEB: http_task: starting HTTP server[0m
+[0;32mI (753) wifi:wifi firmware version: 02461b5[0m
+[0;32mI (753) wifi:wifi certification version: v7.0[0m
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (753) wifi:[0;32mI (763) WEB: http_task: HTTP server started[0m[0m
+config NVS flash: enabled
+[0;32mI (773) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (803) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (733) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (843) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (933) wifi:Total power save buffer number: 16[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (943) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1�r7�R�#q(�"�רM�*TXVRJB)\a	(�5f.K��: 2.54[0m�H[0;32mI (7413) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7423) WEB: api_flow_handler response: {"flow_rate_lpm":87.861,"liters":2.9287,"pulses":15815}[0m
+[0;32mI (7433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7433) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (7443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (7813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (8823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (9413) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9413) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9423) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9423) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (9443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (9833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (9833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (10643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (10843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (11423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (11453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (11853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (12863) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12863) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (13423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13433) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (13443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (13873) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (13873) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (14643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (14883) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14883) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (15423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15433) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (15443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (15893) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15893) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (16643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (16903) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16903) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (17423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17433) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (17443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (17913) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17913) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (18643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (18923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (18923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (19433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19433) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (19443) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (19663) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19663) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;33mW (19933) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (19933) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (20643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (20943) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (20943) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (21423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (21453) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (21953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (21953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (22643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (22963) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (22963) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (23433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (23453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (23973) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (23973) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (24643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (24983) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (24983) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (25433) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (25993) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (25993) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (26643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (27003) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (27003) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (27423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (27453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (28013) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (28013) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (28643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (29023) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (29023) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (29433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (29433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (29453) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (29453) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (29463) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (30033) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (30033) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (30643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (31043) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (31043) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (31433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (31433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (31443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (31443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (31453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (32053) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (32053) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (32643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (33063) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (33063) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (33433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (33433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (33443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (33443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (33453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (34073) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (34073) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (34093) WEB: pump1_on_handler: request received[0m
+[0;32mI (34093) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) wifi:wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (733) WEB: spiffs_task: mounted[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (733) wifi:[0;32mI (733) WEB: http_task: starting HTTP server[0m[0m
+wifi firmware version: 02461b5
+[0;32mI (753) wifi:wifi certification version: v7.0[0m
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (753) wifi:[0;32mI (763) WEB: http_task: HTTP server started[0m[0m
+config NVS flash: enabled
+[0;32mI (763) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (773) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (793) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (733) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (813) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp[0;33mW (1703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2643) FLOW: pulses=760 freq=380.00Hz L=0.1407 flow=4.222 L/min[0m
+[0;33mW (2713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (3723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (4733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (5743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (6753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6753) ULTRASONIC_APP: Litres: 2.54[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (723) wifi:[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m[0m
+[0;32mI (723) WEB: spiffs_task: mounted[0m
+wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0;32mI (743) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (763) WEB: HTTP server started[0m
+[0;32mI (763) WEB: http_task: HTTP server started[0m
+[0;32mI (773) wifi:wifi firmware version: 02461b5[0m
+[0;32mI (773) wifi:wifi certification version: v7.0[0m
+[0;32mI (773) wifi:config NVS flash: enabled[0m
+[0;32mI (773) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (793) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (803) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (723) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (833) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (843) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (943) wifi:Total power save buffer number: 16[0m
+[0;32mI (943) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (943) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (963) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2643) FLOW: pulses=65 freq=32.50Hz L=0.0120 flow=0.361 L/min[0m
+[0;33mW (2713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (3723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4263) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (4273) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (4293) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (4643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (4733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (5543) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;33mW (5743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (6753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (7403) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;33mW (7763) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7763) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8243) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8253) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8263) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8263) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8273) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8273) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8293) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8303) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8303) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8313) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8313) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8333) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8343) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8343) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8353) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8363) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8363) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8373) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8393) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8403) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8413) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (8443) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8453) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8453) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8473) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8473) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (8483) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8493) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (8643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (8773) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8773) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (9253) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9253) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (9683) WEB: pump1_on_handler: request received[0m
+[0;32mI (9683) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (10643) FLOW: pulses=5293 freq=2646.50Hz L=0.9802 flow=29.406 L/min[0m
+[0;33mW (10793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (11803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (12253) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12253) WEB: api_flow_handler response: {"flow_rate_lpm":29.406,"liters":0.9802,"pulses":5293}[0m
+[0;32mI (12643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (12813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (13823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (13823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (14223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14253) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14253) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (14643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (14833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (15843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (16233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (16253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (16853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (17863) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17863) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (18233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (18263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (18873) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (18873) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (19883) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (19883) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (20233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (20263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (20893) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (20893) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (21903) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (21903) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (22233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (22263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (22913) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (22913) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (23923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (23923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (24233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (24263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (24933) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (24933) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (25943) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (25943) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (26233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (26263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (26953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (26953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (27953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (27953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (28243) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (28243) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (28253) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (28253) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (28263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (28643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (28963) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (28963) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (29233) WEB: pump1_on_handler: request received[0m
+[0;32mI (29233) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (723) wifi:[0;32mI (733) WEB: spiffs_task: mounted[0m[0m
+wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0;32mI (733) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (763) WEB: http_task: HTTP server started[0m
+[0;32mI (763) wifi:wifi firmware version: 02461b5[0m
+[0;32mI (763) wifi:wifi certification version: v7.0[0m
+[0;32mI (763) wifi:config NVS flash: enabled[0m
+[0;32mI (773) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (803) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (723) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (843) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (933) wifi:Total power save buffer number: 16[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (943) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (943) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2273) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2273) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2303) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2313) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:342, winSize:64[0m
+[0;32mI (2563) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2563) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2583) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2583) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2593) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2613) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2623) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2633) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2643) FLOW: pulses=33 freq=16.50Hz L=0.0061 flow=0.183 L/min[0m
+[0;32mI (2653) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2663) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2663) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2713) WEB: api_flow_handler response: {"flow_rate_lpm":0.183,"liters":0.0061,"pulses":33}[0m
+[0;33mW (2723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (3063) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3163) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3163) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (3733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4163) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4293) WEB: api_flow_handler response: {"flow_rate_lpm":0.183,"liters":0.0061,"pulses":33}[0m
+[0;32mI (4303) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4303) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (4323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4333) WEB: pump1_on_handler: request received[0m
+[0;32mI (4333) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (4643) FLOW: pulses=1482 freq=741.00Hz L=0.2744 flow=8.233 L/min[0m
+[0;33mW (6763) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6763) ULTRASONIC_APP: Litres: 2.54[0m
+                                0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (723) wifi:[0;32mI (733) WEB: spiffs_task: mounted[0m[0m
+wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0;32mI (733) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (763) WEB: http_task: HTTP server started[0m
+[0;32mI (763) wifi:wifi firmware version: 02461b5[0m
+[0;32mI (763) wifi:wifi certification version: v7.0[0m
+[0;32mI (763) wifi:config NVS flash: enabled[0m
+[0;32mI (773) wifi:config nano formating: disabled[0m
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (803) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (723) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (843) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (953) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (963) wifi:Total power save buffer number: 16[0m
+[0;32mI (963) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (963) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (963) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (963) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (973) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2643) FLOW: pulses=54 freq=27.00Hz L=0.0100 flow=0.300 L/min[0m
+[0;33mW (2713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2773) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2773) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2803) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2923) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (3273) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;33mW (3723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4483) WEB: pump1_on_handler: request received[0m
+[0;32mI (4483) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (4643) FLOW: pulses=695 freq=347.50Hz L=0.1287 flow=3.861 L/min[0m
+[0;33mW (4733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4753) WEB: api_flow_handler response: {"flow_rate_lpm":3.861,"liters":0.1287,"pulses":695}[0m
+[0;32mI (4763) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4763) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (4783) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (5743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6643) FLOW: pulses=8462 freq=4231.00Hz L=1.5670 flow=47.011 L/min[0m
+[0;33mW (6753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6753) WEB: api_flow_handler response: {"flow_rate_lpm":47.011,"liters":1.5670,"pulses":8462}[0m
+[0;32mI (6773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6783) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (6783) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (7743) WEB: pump1_off_handler: request received[0m
+[0;32mI (7743) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;33mW (7753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7763) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8583) WEB: pump1_off_handler: request received[0m
+[0;32mI (8583) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;32mI (8643) FLOW: pulses=7311 freq=3655.50Hz L=1.3539 flow=40.617 L/min[0m
+[0;32mI (8753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (8753) WEB: api_flow_handler response: {"flow_rate_lpm":40.617,"liters":1.3539,"pulses":7311}[0m
+[0;32mI (8763) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;33mW (8773) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8773) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (8773) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8783) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9753) WEB: pump1_off_handler: request received[0m
+[0;32mI (9753) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;33mW (9793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (9793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (10193) WEB: pump1_on_handler: request received[0m
+[0;32mI (10193) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (10643) FLOW: pulses=1913 freq=956.50Hz L=0.3543 flow=10.628 L/min[0m
+[0;32mI (10753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10763) WEB: api_flow_handler response: {"flow_rate_lpm":10.628,"liters":0.3543,"pulses":1913}[0m
+[0;32mI (10773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10773) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (10783) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (10793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (11803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12643) FLOW: pulses=10889 freq=5444.50Hz L=2.0165 flow=60.494 L/min[0m
+[0;32mI (12763) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (12773) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12773) WEB: api_flow_handler response: {"flow_rate_lpm":60.494,"liters":2.0165,"pulses":10889}[0m
+[0;32mI (12783) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12783) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (12803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (13813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (13813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (14643) FLOW: pulses=12603 freq=6301.50Hz L=2.3339 flow=70.017 L/min[0m
+[0;32mI (14763) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14763) WEB: api_flow_handler response: {"flow_rate_lpm":70.017,"liters":2.3339,"pulses":12603}[0m
+[0;32mI (14773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14773) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (14783) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (14823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (15833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (16643) FLOW: pulses=16993 freq=8496.50Hz L=3.1469 flow=94.406 L/min[0m
+[0;32mI (16753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16763) WEB: api_flow_handler response: {"flow_rate_lpm":94.406,"liters":3.1469,"pulses":16993}[0m
+[0;32mI (16773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16773) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (16783) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (16843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (17853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (18643) FLOW: pulses=19317 freq=9658.50Hz L=3.5772 flow=107.317 L/min[0m
+�	�P-G8�u�5�i39K5umR��y��RZRTGWW3V�6&�[happngQ@)Rj�R)	MV/^�^O".ml3+S
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  d098b5fe770f8dec...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) wifi:wifi driver task: 3ffc9dd0, prio:23, stack:6656, core=0[0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (733) WEB: spiffs_task: mounted[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (733) wifi:[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m[0m
+wifi firmware version: 02461b5[0;32mI (733) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (753) wifi:wifi certification version: v7.0[0m
+[0;32mI (753) wifi:config NVS flash: enabled[0m
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (763) wifi:[0;32mI (763) WEB: http_task: HTTP server started[0m[0m
+config nano formating: disabled
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (783) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (803) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (733) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (843) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (973) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (973) wifi:Total power save buffer number: 16[0m
+[0;32mI (983) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (983) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (983) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (983) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (993) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2333) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2333) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2353) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2373) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:287, winSize:64[0m
+[0;32mI (2583) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2583) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2603) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2613) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2623) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2623) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (2643) FLOW: pulses=20 freq=10.00Hz L=0.0037 flow=0.111 L/min[0m
+[0;32mI (2643) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2643) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2663) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2693) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2703) WEB: api_flow_handler response: {"flow_rate_lpm":0.111,"liters":0.0037,"pulses":20}[0m
+[0;32mI (2723) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2723) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2733) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (2743) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2743) WEB: api_flow_handler response: {"flow_rate_lpm":0.111,"liters":0.0037,"pulses":20}[0m
+[0;33mW (2753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2863) WEB: pump1_off_handler: request received[0m
+[0;32mI (2863) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;32mI (3213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3213) WEB: api_flow_handler response: {"flow_rate_lpm":0.111,"liters":0.0037,"pulses":20}[0m
+[0;32mI (3223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (3233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3633) WEB: pump1_on_handler: request received[0m
+[0;32mI (3633) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m

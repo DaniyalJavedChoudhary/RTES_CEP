@@ -1,0 +1,749 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      a6379ce-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 14 2025 14:09:32[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  52c3ac43a27a31ab...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (633) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (643) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (643) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: pumps_task: initializing pumps[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (663) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (713) wifi:wifi driver task: 3ffc9ea8, prio:23, stack:6656, core=0[0m
+[0;32mI (713) WEB: Pumps initialized (GPIO 18, 19)[0m
+[0;32mI (723) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (723) WEB: pumps_task: pumps ready (stack high water mark: 1904 words)[0m
+[0;32mI (733) wifi:[0;32mI (733) WEB: spiffs_task: mounted[0m[0m
+wifi firmware version: 02461b5
+[0;32mI (743) WEB: http_task: starting HTTP server[0m
+[0;32mI (743) wifi:wifi certification version: v7.0[0m
+[0;32mI (753) wifi:config NVS flash: enabled[0m
+[0;32mI (753) WEB: HTTP server started[0m
+[0;32mI (763) wifi:[0;32mI (763) WEB: http_task: HTTP server started[0m[0m
+config nano formating: disabled
+[0;32mI (773) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (773) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (783) wifi:Init management short buffer num: 32[0m
+[0;32mI (783) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (793) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (793) wifi:Init static rx buffer num: 10[0m
+[0;32mI (793) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (733) main_task: Returned from app_main()[0m
+[0;32mI (803) wifi_init: rx ba win: 6[0m
+[0;32mI (813) wifi_init: tcpip mbox: 32[0m
+[0;32mI (813) wifi_init: udp mbox: 6[0m
+[0;32mI (813) wifi_init: tcp mbox: 6[0m
+[0;32mI (823) wifi_init: tcp tx win: 5760[0m
+[0;32mI (823) wifi_init: tcp rx win: 5760[0m
+[0;32mI (833) wifi_init: tcp mss: 1440[0m
+[0;32mI (833) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (833) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (853) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (933) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (933) wifi:Total power save buffer number: 16[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (933) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (943) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (953) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1693) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1693) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (2703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2773) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2783) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2823) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2923) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (3303) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;33mW (3713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (4723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (5213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (5253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5263) WEB: pump1_on_handler: request received[0m
+[0;32mI (5263) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (5273) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5273) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5283) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5283) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (5733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (6743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (7193) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7193) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7203) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7203) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (7223) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (7753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8533) WEB: pump1_on_handler: request received[0m
+[0;32mI (8533) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (8643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (8763) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8763) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (9193) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9193) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9203) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (9213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9213) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (9773) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (9773) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (10643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (10783) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10783) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (11203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11213) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (11223) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (11793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (12803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (13203) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13203) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (13213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13223) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (13813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (13813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (14643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (14823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (15203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15213) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (15223) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (15833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (16643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (16843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (17203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17213) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (17223) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;33mW (17853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (18253) WEB: pump1_off_handler: request received[0m
+[0;32mI (18253) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;32mI (18643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (18863) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (18863) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (19203) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (19873) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (19873) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (20643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (20883) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (20883) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (21203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (21233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (21893) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (21893) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (22643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (22903) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (22903) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (23203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23213) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (23233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (23913) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (23913) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (24643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (24923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (24923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (25203) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;33mW (25933) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (25933) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (26643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (26943) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (26943) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (27203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (27233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (27953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (27953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (28643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (28963) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (28963) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (29203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (29203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (29213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (29223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (29233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (29973) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (29973) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (30643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (30983) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (30983) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (31213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (31213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (31223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (31223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (31233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (31993) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (31993) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (32643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (33003) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (33003) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (33213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (33213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (33223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (33223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (33233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (34013) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (34013) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (34643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (35023) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (35023) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (35213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (35213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (35223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (35223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (35233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (36033) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (36033) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (36643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (37043) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (37043) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (37213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (37213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (37233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (37233) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (37243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (38053) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (38053) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (38643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (39063) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (39063) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (39213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (39213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (39223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (39223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (39233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (40073) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (40073) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (40643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (41083) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (41083) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (41233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (41233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (41243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (41243) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (41263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (42093) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (42093) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (42643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (43103) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (43103) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (43213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (43213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (43223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (43223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (43243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (44113) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (44113) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (44643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (45123) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (45123) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (45213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (45213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (45223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (45223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (45243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (46133) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (46133) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (46643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (47143) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (47143) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (47213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (47213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (47223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (47223) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (47243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (48153) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (48153) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (48643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (49163) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (49163) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (49223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (49223) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (49233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (49233) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (49253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (50173) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (50173) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (50643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (51183) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (51183) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (51223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (51223) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (51233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (51233) WEB: api_ultrasonic_handler response: {"distance_cm":0,"litre":2.54}[0m
+[0;32mI (51243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (52193) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (52193) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (52643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;32mI (52903) wifi:station: f2:c6:4e:59:10:be leave, AID = 1, reason = 8, bss_flags is 691315, bss:0x3ffbfe58[0m
+[0;32mI (52903) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (52913) wifi:<ba-del>idx:2, tid:0[0m
+[0;32mI (52913) WEB: station f2:c6:4e:59:10:be leave, AID=1[0m
+[0;33mW (53203) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (53203) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (54213) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (54213) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (54643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (55223) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (55223) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (56233) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (56233) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (56643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (57243) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (57243) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (58253) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (58253) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (58643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (59263) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (59263) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (60273) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (60273) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (60643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (61283) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (61283) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (62293) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (62293) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (62643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (63303) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (63303) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (64313) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (64313) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (64643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (65323) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (65323) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (66333) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (66333) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (66643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (67343) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (67343) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (68353) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (68353) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (68643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (69363) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (69363) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (70373) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (70373) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (70643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (71383) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (71383) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (72393) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (72393) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (72643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (73403) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (73403) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (74413) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (74413) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (74643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (75423) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (75423) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (76433) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (76433) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (76643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (77443) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (77443) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (78453) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (78453) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (78643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (79463) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (79463) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (80473) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (80473) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (80643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (81483) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (81483) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (82493) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (82493) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (82643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (83503) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (83503) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (84513) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (84513) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (84643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (85523) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (85523) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (86533) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (86533) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (86643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (87543) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (87543) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (88553) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (88553) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (88643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (89563) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (89563) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (90573) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (90573) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (90643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (91583) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (91583) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (92593) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (92593) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (92643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (93603) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (93603) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (94613) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (94613) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (94643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (95623) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (95623) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (96633) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (96633) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (96643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (97643) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (97643) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (98643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (98653) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (98653) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (99663) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (99663) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (100643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (100673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (100673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (101683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (101683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (102643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (102693) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (102693) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (103703) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (103703) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (104643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (104713) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (104713) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (105723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (105723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (106643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (106733) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (106733) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (107743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (107743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (108643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (108753) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (108753) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (109763) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (109763) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (110643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (110773) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (110773) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (111783) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (111783) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (112643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (112793) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (112793) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (113803) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (113803) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (114643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (114813) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (114813) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (115823) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (115823) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (116643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (116833) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (116833) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (117843) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (117843) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (118643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (118853) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (118853) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (119863) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (119863) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (120643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (120873) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (120873) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (121883) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (121883) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (122643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (122893) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (122893) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (123903) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (123903) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (124643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (124913) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (124913) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (125923) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (125923) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (126643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (126933) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (126933) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (127943) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (127943) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (128643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (128953) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (128953) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (129963) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (129963) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (130643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (130973) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (130973) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (131983) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (131983) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (132643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (132993) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (132993) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (134003) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (134003) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (134643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (135013) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (135013) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (136023) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (136023) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (136643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (137033) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (137033) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (138043) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (138043) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (138643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (139053) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (139053) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (140063) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (140063) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (140643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (141073) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (141073) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (142083) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (142083) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (142643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (143093) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (143093) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (144103) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (144103) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (144643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (145113) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (145113) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (146123) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (146123) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (146643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (147133) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (147133) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (148143) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (148143) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (148643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (149153) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (149153) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (150163) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (150163) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (150643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (151173) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (151173) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (152183) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (152183) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (152643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (153193) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (153193) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (154203) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (154203) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (154643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (155213) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (155213) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (156223) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (156223) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (156643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (157233) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (157233) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (158243) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (158243) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (158643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (159253) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (159253) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (160263) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (160263) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (160643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (161273) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (161273) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (162283) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (162283) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (162643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (163293) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (163293) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (164303) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (164303) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (164643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (165313) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (165313) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (166323) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (166323) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (166643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (167333) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (167333) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (168343) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (168343) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (168643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (169353) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (169353) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (170363) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (170363) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (170643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (171373) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (171373) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (172383) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (172383) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (172643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (173393) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (173393) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (174403) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (174403) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (174643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;[0;32mI (2643) FLOW: pulses=8416 freq=4208.00Hz L=18.7022 flow=561.067 L/min[0m
+[0;33mW (3723) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3723) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (5743) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5743) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8643) FLOW: pulses=6167 freq=3083.50Hz L=13.7044 flow=411.133 L/min[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[

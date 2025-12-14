@@ -1,17 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 #include <inttypes.h>
+#include <stdbool.h>
+#include <stdatomic.h>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
+
 #include "driver/gpio.h"
+
 #include "esp_wifi.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "nvs_flash.h"
+#include "esp_http_server.h"
+#include "esp_netif.h"
+
 #ifdef CONFIG_ESP_TASK_WDT_EN
 #include "esp_task_wdt.h"
 #endif
+
 #if defined(__has_include)
 #  if __has_include("esp_vfs_spiffs.h")
 #    include "esp_vfs_spiffs.h"
@@ -21,55 +30,137 @@
 #else
 #  include "esp_vfs_spiffs.h"
 #endif
-#include "esp_http_server.h"
-#include "esp_netif.h"
-#include "cJSON.h"
-#include <stdbool.h>
-#include "ultrasonic.h"
-#include <stdatomic.h>
 
+#include "cJSON.h"
+#include "ultrasonic.h"
+
+/* ===================================================================
+ * APPLICATION CONSTANTS AND CONFIGURATION (MISRA C Compliant)
+ * =================================================================== */
 
 static const char *TAG = "WEB";
 
-// ------------------------ PUMPS GPIO DEFINES ------------------------
-#define PUMP1_GPIO  18   
-#define PUMP2_GPIO  19 
-/* Set to 0 if your pump driver is active-low (drive 0 to turn ON).
-    Set to 1 if your driver is active-high (drive 1 to turn ON). */
-#define PUMP_ACTIVE_LEVEL 0
-/* If your pump driver expects the MCU to pull the line low to enable the pump
-    and release (float) the line to disable it (common with open-drain drivers),
-    set this to 1. Otherwise set to 0 to always drive the pin high/low. */
-#define PUMP_OPEN_DRAIN 1
+/* -------- Pump GPIO Configuration -------- */
+#define PUMP1_GPIO              (18U)
+#define PUMP2_GPIO              (19U)
+#define PUMP_ACTIVE_LEVEL       (0U)
+#define PUMP_OPEN_DRAIN         (1U)
 
-#define FLOW_GPIO            GPIO_NUM_17 
-#define PULSES_PER_LITER     450.0f
-#define MEASURE_INTERVAL_MS  2000
+/* -------- Flow Sensor Configuration -------- */
+#define FLOW_GPIO               GPIO_NUM_17
+/* YF-S201 calibration: Empirically determined from testing
+   Datasheet: ~450 pulses/L (often incorrect for clones)
+   Tested: 17000 pulses/L brings readings within 1-30 L/min range
+   Adjust ±10% if readings seem off after real-world testing */
+#define PULSES_PER_LITER        (17000.0f)
+#define MEASURE_INTERVAL_MS     (2000U)
 
-/* Flow sensor state (ISR-safe) */
-static atomic_uint_fast32_t s_pulse_count = 0;
-/* Forward declaration of ISR so it can be referenced from flow_init (defined later) */
-static void IRAM_ATTR flow_pulse_isr(void *arg);
-/* Forward declaration for flow accessor function */
-void flow_get_latest(float *out_lpm, uint32_t *out_pulses, float *out_liters);
+/* -------- Ultrasonic Sensor Configuration -------- */
+#define US_TANK_HEIGHT_CM       (13.5f)
+#define US_TANK_SURFACE_AREA    (188.0f)
+#define US_MEASURE_MAX_CM       (400U)
+#define US_MEASURE_INTERVAL_MS  (1000U)
+
+/* -------- HTTP Server Configuration -------- */
+#define HTTP_STACK_SIZE         (4096U)
+#define HTTP_MAX_HANDLERS       (32U)
+#define HTTP_BUFFER_SIZE        (1024U)
+#define SPIFFS_MAX_FILES        (10U)
+#define SPIFFS_BASE_PATH        "/spiffs"
+
+/* -------- Task Configuration -------- */
+#define TASK_STACK_SIZE         (4096U)
+#define STARTUP_TASK_STACK      (8192U)
+#define TASK_PRIORITY           (5U)
+
+/* ===================================================================
+ * TYPE DEFINITIONS AND STRUCTURES
+ * =================================================================== */
+
 typedef struct {
     float last_lpm;
     float last_liters;
     uint32_t last_pulses;
 } flow_state_t;
 
-static flow_state_t s_flow_state = {0};
+/* ===================================================================
+ * GLOBAL STATE VARIABLES (MISRA: minimize global state)
+ * =================================================================== */
+
+/* Flow sensor state (ISR-safe) */
+static atomic_uint_fast32_t s_pulse_count = ATOMIC_VAR_INIT(0U);
+
+/* Flow state snapshot */
+static flow_state_t s_flow_state = {0.0f, 0.0f, 0U};
 
 /* Ultrasonic sensor state */
-static uint32_t s_ultrasonic_distance_cm = 0;
+static uint32_t s_ultrasonic_distance_cm = 0U;
 static float s_ultrasonic_litre = 0.0f;
 
-// ------------------------ GPIO INIT FOR DOSING PUMPS ------------------------
+/* Semaphore used to signal SPIFFS mount completion */
+static SemaphoreHandle_t spiffs_mounted_sem = NULL;
+
+/* ===================================================================
+ * FORWARD DECLARATIONS (MISRA: All functions declared before use)
+ * =================================================================== */
+
+/* Flow sensor functions */
+static void flow_pulse_isr(void *arg);  /* IRAM_ATTR applied at definition only */
+static void flow_init(void);
+void flow_get_latest(float *out_lpm, uint32_t *out_pulses, float *out_liters);
+void flow_task(void *pvParameter);
+
+/* Pump control functions */
+static void init_pumps(void);
+static esp_err_t pump_set_state(int pump_id, bool on);
+static bool pump_get_state(int pump_id);
+
+/* HTTP handlers */
+static esp_err_t pump1_on_handler(httpd_req_t *req);
+static esp_err_t pump1_off_handler(httpd_req_t *req);
+static esp_err_t pump2_on_handler(httpd_req_t *req);
+static esp_err_t pump2_off_handler(httpd_req_t *req);
+static esp_err_t pump1_status_handler(httpd_req_t *req);
+static esp_err_t pump2_status_handler(httpd_req_t *req);
+static esp_err_t api_pump_start_handler(httpd_req_t *req);
+static esp_err_t api_pump_stop_handler(httpd_req_t *req);
+static esp_err_t api_flow_handler(httpd_req_t *req);
+static esp_err_t api_ultrasonic_handler(httpd_req_t *req);
+static esp_err_t api_sensors_handler(httpd_req_t *req);
+static esp_err_t serve_static_file(httpd_req_t *req);
+
+/* HTTP server functions */
+static httpd_handle_t start_server(void);
+
+/* WiFi functions */
+static void wifi_event_handler(void *arg, esp_event_base_t event_base,
+                               int32_t event_id, void *event_data);
+static void wifi_init_softap(void);
+
+/* Initialization and task functions */
+static void init_spiffs(void);
+static void startup_task(void *pvParameter);
+static void spiffs_task(void *pvParameter);
+static void http_task(void *pvParameter);
+static void wifi_task(void *pvParameter);
+static void pumps_task(void *pvParameter);
+static void us_sensor_task(void *pvParameter);
+
+/* ===================================================================
+ * PUMP CONTROL IMPLEMENTATION
+ * =================================================================== */
+
+/**
+ * @brief Initialize pump GPIO pins
+ * 
+ * Configures GPIO pins for pump control, ensuring they start in the OFF state.
+ * Handles both standard and open-drain driver configurations.
+ */
 static void init_pumps(void)
 {
     /* Reset pins to known state, then configure as outputs */
-    gpio_reset_pin(PUMP1_GPIO);
-    gpio_reset_pin(PUMP2_GPIO);
+    gpio_reset_pin((gpio_num_t)PUMP1_GPIO);
+    gpio_reset_pin((gpio_num_t)PUMP2_GPIO);
 
     gpio_config_t io_conf = {
         .mode = GPIO_MODE_OUTPUT,
@@ -78,157 +169,292 @@ static void init_pumps(void)
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE
     };
-    gpio_config(&io_conf);
-
-     /* Ensure pumps are OFF by default using configured active level.
-         OFF level is the inverse of the active level. Write twice to stabilize. */
-    int off_level = (PUMP_ACTIVE_LEVEL == 0) ? 1 : 0;
-    if (PUMP_OPEN_DRAIN && PUMP_ACTIVE_LEVEL == 0) {
-        /* For open-drain low-side drivers, leave pins as inputs (released) to keep pumps OFF */
-        gpio_set_direction(PUMP1_GPIO, GPIO_MODE_INPUT);
-        gpio_set_direction(PUMP2_GPIO, GPIO_MODE_INPUT);
-    } else {
-        gpio_set_level(PUMP1_GPIO, off_level);
-        gpio_set_level(PUMP1_GPIO, off_level);
-        gpio_set_level(PUMP2_GPIO, off_level);
-        gpio_set_level(PUMP2_GPIO, off_level);
+    
+    esp_err_t ret = gpio_config(&io_conf);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure pump GPIO: %s", esp_err_to_name(ret));
+        return;
     }
 
-    ESP_LOGI("PUMP", "Pumps initialized (GPIO %d, %d)", PUMP1_GPIO, PUMP2_GPIO);
+    /* Ensure pumps are OFF by default using configured active level */
+    int off_level = (PUMP_ACTIVE_LEVEL == 0U) ? 1 : 0;
+    
+    if ((PUMP_OPEN_DRAIN == 1U) && (PUMP_ACTIVE_LEVEL == 0U)) {
+        /* For open-drain low-side drivers, leave pins as inputs (released) */
+        (void)gpio_set_direction((gpio_num_t)PUMP1_GPIO, GPIO_MODE_INPUT);
+        (void)gpio_set_direction((gpio_num_t)PUMP2_GPIO, GPIO_MODE_INPUT);
+    } else {
+        (void)gpio_set_level((gpio_num_t)PUMP1_GPIO, off_level);
+        (void)gpio_set_level((gpio_num_t)PUMP2_GPIO, off_level);
+    }
+
+    ESP_LOGI(TAG, "Pumps initialized (GPIO %u, %u)", (unsigned)PUMP1_GPIO, (unsigned)PUMP2_GPIO);
 }
 
-/* Call this once at startup to initialize */
-void flow_init(void)
+/**
+ * @brief Initialize flow sensor GPIO and ISR
+ * 
+ * Configures the flow sensor input pin and registers the ISR handler
+ * for pulse counting.
+ */
+static void flow_init(void)
 {
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << FLOW_GPIO),
         .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_ENABLE,
         .intr_type = GPIO_INTR_POSEDGE
     };
-    gpio_config(&io_conf);
+    
+    esp_err_t ret = gpio_config(&io_conf);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure flow GPIO: %s", esp_err_to_name(ret));
+        return;
+    }
 
-    gpio_install_isr_service(0); // 0 = default iram flags
-    gpio_isr_handler_add(FLOW_GPIO, flow_pulse_isr, NULL);
+    ret = gpio_install_isr_service(0U);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to install ISR service: %s", esp_err_to_name(ret));
+        return;
+    }
+    
+    ret = gpio_isr_handler_add(FLOW_GPIO, flow_pulse_isr, NULL);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to add ISR handler: %s", esp_err_to_name(ret));
+    }
 }
 
-/* Helper: set pump state (true == ON, false == OFF). Returns ESP_OK on success */
+/**
+ * @brief Set pump state (ON/OFF)
+ * 
+ * @param pump_id ID of pump (1 or 2)
+ * @param on True for ON, false for OFF
+ * @return ESP_OK on success, ESP_FAIL if invalid pump_id
+ */
 static esp_err_t pump_set_state(int pump_id, bool on)
 {
-    int gpio = (pump_id == 1) ? PUMP1_GPIO : PUMP2_GPIO;
+    uint32_t gpio_num;
+    
+    if (pump_id == 1) {
+        gpio_num = PUMP1_GPIO;
+    } else if (pump_id == 2) {
+        gpio_num = PUMP2_GPIO;
+    } else {
+        ESP_LOGE(TAG, "pump_set_state: invalid pump_id %d", pump_id);
+        return ESP_FAIL;
+    }
+
     /* Calculate physical GPIO level based on configured active level */
-    int active = PUMP_ACTIVE_LEVEL ? 1 : 0;
+    int active = (PUMP_ACTIVE_LEVEL != 0U) ? 1 : 0;
     int level = on ? active : (1 - active);
 
     /* Handle open-drain release mode if configured and active-low hardware */
-    if (PUMP_OPEN_DRAIN && PUMP_ACTIVE_LEVEL == 0) {
+    if ((PUMP_OPEN_DRAIN == 1U) && (PUMP_ACTIVE_LEVEL == 0U)) {
         if (on) {
             /* drive low to turn pump ON */
-            gpio_set_direction(gpio, GPIO_MODE_OUTPUT);
-            gpio_set_level(gpio, 0);
+            (void)gpio_set_direction((gpio_num_t)gpio_num, GPIO_MODE_OUTPUT);
+            (void)gpio_set_level((gpio_num_t)gpio_num, 0);
         } else {
             /* release line to turn pump OFF */
-            gpio_set_direction(gpio, GPIO_MODE_INPUT);
+            (void)gpio_set_direction((gpio_num_t)gpio_num, GPIO_MODE_INPUT);
         }
     } else {
         /* Re-assert direction before setting level to be robust */
-        gpio_set_direction(gpio, GPIO_MODE_OUTPUT);
-        gpio_set_level(gpio, level);
+        (void)gpio_set_direction((gpio_num_t)gpio_num, GPIO_MODE_OUTPUT);
+        (void)gpio_set_level((gpio_num_t)gpio_num, level);
     }
 
-    int read = gpio_get_level(gpio);
+    int read = gpio_get_level((gpio_num_t)gpio_num);
     if (read != level) {
-        ESP_LOGW(TAG, "pump_set_state: mismatch for pump %d gpio %d set=%d read=%d - retrying", pump_id, gpio, level, read);
-        /* If we tried to set the pin HIGH and it read LOW, try enabling internal pull-up and retry once.
-           This helps when an external open-drain driver or weak pull-down is present. */
+        ESP_LOGW(TAG, "pump_set_state: mismatch for pump %d gpio %u set=%d read=%d - retrying", pump_id, (unsigned)gpio_num, level, read);
+        /* If we tried to set HIGH and it read LOW, try enabling internal pull-up */
         if (level == 1) {
-            gpio_set_pull_mode(gpio, GPIO_PULLUP_ONLY);
+            (void)gpio_set_pull_mode((gpio_num_t)gpio_num, GPIO_PULLUP_ONLY);
             vTaskDelay(pdMS_TO_TICKS(10));
-            gpio_set_level(gpio, level);
+            (void)gpio_set_level((gpio_num_t)gpio_num, level);
             vTaskDelay(pdMS_TO_TICKS(10));
-            read = gpio_get_level(gpio);
-            gpio_set_pull_mode(gpio, GPIO_FLOATING);
+            read = gpio_get_level((gpio_num_t)gpio_num);
+            (void)gpio_set_pull_mode((gpio_num_t)gpio_num, GPIO_FLOATING);
         }
         if (read != level) {
-            ESP_LOGW(TAG, "pump_set_state: still mismatch after retry for pump %d gpio %d set=%d read=%d", pump_id, gpio, level, read);
+            ESP_LOGW(TAG, "pump_set_state: mismatch after retry for pump %d gpio %u set=%d read=%d", pump_id, (unsigned)gpio_num, level, read);
         }
     }
-    ESP_LOGI(TAG, "pump_set_state: pump %d -> %s (gpio %d level=%d)", pump_id, on ? "ON" : "OFF", gpio, read);
+    ESP_LOGI(TAG, "pump_set_state: pump %d -> %s (gpio %u level=%d)", pump_id, on ? "ON" : "OFF", (unsigned)gpio_num, read);
     return ESP_OK;
 }
 
+/**
+ * @brief Get current pump state
+ * 
+ * @param pump_id ID of pump (1 or 2)
+ * @return True if pump is ON, false if OFF
+ */
 static bool pump_get_state(int pump_id)
 {
-    int gpio = (pump_id == 1) ? PUMP1_GPIO : PUMP2_GPIO;
-    int lvl = gpio_get_level(gpio);
+    uint32_t gpio_num;
+    
+    if (pump_id == 1) {
+        gpio_num = PUMP1_GPIO;
+    } else if (pump_id == 2) {
+        gpio_num = PUMP2_GPIO;
+    } else {
+        ESP_LOGE(TAG, "pump_get_state: invalid pump_id %d", pump_id);
+        return false;
+    }
+    
+    int lvl = gpio_get_level((gpio_num_t)gpio_num);
     /* Map physical level to logical ON/OFF using configured active level */
-    int active = PUMP_ACTIVE_LEVEL ? 1 : 0;
+    int active = (PUMP_ACTIVE_LEVEL != 0U) ? 1 : 0;
     return (lvl == active);
 }
 
 
-// ------------------------ PUMPS HANDLERS ------------------------
+/* ===================================================================
+ * HTTP REQUEST HANDLERS (MISRA Compliant)
+ * =================================================================== */
+
+/**
+ * @brief Handler for turning pump 1 ON
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t pump1_on_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "pump1_on_handler: request received");
-    pump_set_state(1, true);
+    esp_err_t ret = pump_set_state(1, true);
+    if (ret != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
+        return ESP_FAIL;
+    }
+    
     char resp[64];
-    snprintf(resp, sizeof(resp), "{\"pump\":1,\"state\":\"ON\"}");
+    int written = snprintf(resp, sizeof(resp), "{\"pump\":1,\"state\":\"ON\"}");
+    if ((written < 0) || ((size_t)written >= sizeof(resp))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, resp);
     return ESP_OK;
 }
 
+/**
+ * @brief Handler for turning pump 1 OFF
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t pump1_off_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "pump1_off_handler: request received");
-    pump_set_state(1, false);
+    esp_err_t ret = pump_set_state(1, false);
+    if (ret != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
+        return ESP_FAIL;
+    }
+    
     char resp[64];
-    snprintf(resp, sizeof(resp), "{\"pump\":1,\"state\":\"OFF\"}");
+    int written = snprintf(resp, sizeof(resp), "{\"pump\":1,\"state\":\"OFF\"}");
+    if ((written < 0) || ((size_t)written >= sizeof(resp))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, resp);
     return ESP_OK;
 }
 
+/**
+ * @brief Handler for turning pump 2 ON
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t pump2_on_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "pump2_on_handler: request received");
-    pump_set_state(2, true);
+    esp_err_t ret = pump_set_state(2, true);
+    if (ret != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
+        return ESP_FAIL;
+    }
+    
     char resp[64];
-    snprintf(resp, sizeof(resp), "{\"pump\":2,\"state\":\"ON\"}");
+    int written = snprintf(resp, sizeof(resp), "{\"pump\":2,\"state\":\"ON\"}");
+    if ((written < 0) || ((size_t)written >= sizeof(resp))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, resp);
     return ESP_OK;
 }
 
+/**
+ * @brief Handler for turning pump 2 OFF
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t pump2_off_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "pump2_off_handler: request received");
-    pump_set_state(2, false);
+    esp_err_t ret = pump_set_state(2, false);
+    if (ret != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
+        return ESP_FAIL;
+    }
+    
     char resp[64];
-    snprintf(resp, sizeof(resp), "{\"pump\":2,\"state\":\"OFF\"}");
+    int written = snprintf(resp, sizeof(resp), "{\"pump\":2,\"state\":\"OFF\"}");
+    if ((written < 0) || ((size_t)written >= sizeof(resp))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, resp);
     return ESP_OK;
 }
 
+/**
+ * @brief Handler for pump 1 status query
+ * @param req HTTP request pointer
+ * @return ESP_OK on success
+ */
 static esp_err_t pump1_status_handler(httpd_req_t *req)
 {
     bool on = pump_get_state(1);
     char buf[64];
-    snprintf(buf, sizeof(buf), "{\"pump\":1,\"state\":\"%s\"}", on ? "ON" : "OFF");
+    int written = snprintf(buf, sizeof(buf), "{\"pump\":1,\"state\":\"%s\"}", on ? "ON" : "OFF");
+    if ((written < 0) || ((size_t)written >= sizeof(buf))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     ESP_LOGI(TAG, "pump1_status: %s", buf);
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, buf);
     return ESP_OK;
 }
 
+/**
+ * @brief Handler for pump 2 status query
+ * @param req HTTP request pointer
+ * @return ESP_OK on success
+ */
 static esp_err_t pump2_status_handler(httpd_req_t *req)
 {
     bool on = pump_get_state(2);
     char buf[64];
-    snprintf(buf, sizeof(buf), "{\"pump\":2,\"state\":\"%s\"}", on ? "ON" : "OFF");
+    int written = snprintf(buf, sizeof(buf), "{\"pump\":2,\"state\":\"%s\"}", on ? "ON" : "OFF");
+    if ((written < 0) || ((size_t)written >= sizeof(buf))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
+    
     ESP_LOGI(TAG, "pump2_status: %s", buf);
     httpd_resp_set_type(req, "application/json");
     httpd_resp_sendstr(req, buf);
@@ -236,11 +462,21 @@ static esp_err_t pump2_status_handler(httpd_req_t *req)
 }
 
 
-// POST /api/pump/start { "tank_id": 1, "target_amount": 200 }
+/**
+ * @brief Handler for API pump start command
+ * POST /api/pump/start { "tank_id": 1, "target_amount": 200 }
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t api_pump_start_handler(httpd_req_t *req)
 {
     char buf[128];
-    int ret = httpd_req_recv(req, buf, req->content_len);
+    if (req->content_len <= 0 || req->content_len > (int)sizeof(buf)) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid content length");
+        return ESP_FAIL;
+    }
+    
+    int ret = httpd_req_recv(req, buf, (size_t)req->content_len);
     if (ret <= 0) {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Failed to read body");
         return ESP_FAIL;
@@ -248,22 +484,38 @@ static esp_err_t api_pump_start_handler(httpd_req_t *req)
     buf[ret] = '\0';
 
     cJSON *json = cJSON_Parse(buf);
-    if (!json) {
+    if (json == NULL) {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid JSON");
         return ESP_FAIL;
     }
 
-    int tank_id = cJSON_GetObjectItem(json, "tank_id")->valueint;
-    int target = cJSON_GetObjectItem(json, "target_amount")->valueint;
+    cJSON *tank_id_obj = cJSON_GetObjectItem(json, "tank_id");
+    cJSON *target_obj = cJSON_GetObjectItem(json, "target_amount");
+    
+    if ((tank_id_obj == NULL) || (target_obj == NULL)) {
+        cJSON_Delete(json);
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Missing required fields");
+        return ESP_FAIL;
+    }
+
+    int tank_id = tank_id_obj->valueint;
+    int target = target_obj->valueint;
     cJSON_Delete(json);
 
     ESP_LOGI(TAG, "API Pump Start: tank_id=%d target=%d", tank_id, target);
 
-    // Use helper to set pump state (handles open-drain and active level)
-    if (tank_id == 1) pump_set_state(1, true);
-    else if (tank_id == 2) pump_set_state(2, true);
-    else {
+    esp_err_t err = ESP_OK;
+    if (tank_id == 1) {
+        err = pump_set_state(1, true);
+    } else if (tank_id == 2) {
+        err = pump_set_state(2, true);
+    } else {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid tank_id");
+        return ESP_FAIL;
+    }
+    
+    if (err != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
         return ESP_FAIL;
     }
 
@@ -272,18 +524,30 @@ static esp_err_t api_pump_start_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-// GET /api/flow - returns current flow sensor data
+/**
+ * @brief Handler for flow sensor data API
+ * GET /api/flow - returns current flow sensor data
+ * @param req HTTP request pointer
+ * @return ESP_OK on success
+ */
 static esp_err_t api_flow_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "api_flow_handler: GET /api/flow called");
-    float lpm = 0.0f, liters = 0.0f;
-    uint32_t pulses = 0;
+    float lpm = 0.0f;
+    float liters = 0.0f;
+    uint32_t pulses = 0U;
+    
     flow_get_latest(&lpm, &pulses, &liters);
 
     char buf[128];
-    snprintf(buf, sizeof(buf), 
+    int written = snprintf(buf, sizeof(buf), 
              "{\"flow_rate_lpm\":%.3f,\"liters\":%.4f,\"pulses\":%u}",
-             lpm, liters, (unsigned)pulses);
+             (double)lpm, (double)liters, (unsigned)pulses);
+    
+    if ((written < 0) || ((size_t)written >= sizeof(buf))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
     
     ESP_LOGI(TAG, "api_flow_handler response: %s", buf);
     httpd_resp_set_type(req, "application/json");
@@ -291,12 +555,23 @@ static esp_err_t api_flow_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-// GET /api/ultrasonic - returns current ultrasonic distance and calculated litres
+/**
+ * @brief Handler for ultrasonic sensor data API
+ * GET /api/ultrasonic - returns current ultrasonic distance and calculated litres
+ * @param req HTTP request pointer
+ * @return ESP_OK on success
+ */
 static esp_err_t api_ultrasonic_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "api_ultrasonic_handler: GET /api/ultrasonic called");
     char buf[128];
-    snprintf(buf, sizeof(buf), "{\"distance_cm\":%u,\"litre\":%.2f}", (unsigned)s_ultrasonic_distance_cm, s_ultrasonic_litre);
+    int written = snprintf(buf, sizeof(buf), "{\"distance_cm\":%u,\"litre\":%.2f}", 
+                          (unsigned)s_ultrasonic_distance_cm, (double)s_ultrasonic_litre);
+    
+    if ((written < 0) || ((size_t)written >= sizeof(buf))) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
+        return ESP_FAIL;
+    }
     
     ESP_LOGI(TAG, "api_ultrasonic_handler response: %s", buf);
     httpd_resp_set_type(req, "application/json");
@@ -304,7 +579,12 @@ static esp_err_t api_ultrasonic_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-// Minimal /api/sensors handler: tells client that sensor data is not available
+/**
+ * @brief Handler for sensors availability check
+ * GET /api/sensors - minimal endpoint reporting sensor status
+ * @param req HTTP request pointer
+ * @return ESP_OK on success
+ */
 static esp_err_t api_sensors_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "api_sensors_handler: request received (sensors disabled)");
@@ -313,11 +593,21 @@ static esp_err_t api_sensors_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-// POST /api/pump/stop { "tank_id": 1 }
+/**
+ * @brief Handler for API pump stop command
+ * POST /api/pump/stop { "tank_id": 1 }
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t api_pump_stop_handler(httpd_req_t *req)
 {
     char buf[64];
-    int ret = httpd_req_recv(req, buf, req->content_len);
+    if (req->content_len <= 0 || req->content_len > (int)sizeof(buf)) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid content length");
+        return ESP_FAIL;
+    }
+    
+    int ret = httpd_req_recv(req, buf, (size_t)req->content_len);
     if (ret <= 0) {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Failed to read body");
         return ESP_FAIL;
@@ -325,20 +615,35 @@ static esp_err_t api_pump_stop_handler(httpd_req_t *req)
     buf[ret] = '\0';
 
     cJSON *json = cJSON_Parse(buf);
-    if (!json) {
+    if (json == NULL) {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid JSON");
         return ESP_FAIL;
     }
 
-    int tank_id = cJSON_GetObjectItem(json, "tank_id")->valueint;
+    cJSON *tank_id_obj = cJSON_GetObjectItem(json, "tank_id");
+    if (tank_id_obj == NULL) {
+        cJSON_Delete(json);
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Missing tank_id field");
+        return ESP_FAIL;
+    }
+    
+    int tank_id = tank_id_obj->valueint;
     cJSON_Delete(json);
 
     ESP_LOGI(TAG, "API Pump Stop: tank_id=%d", tank_id);
 
-    if (tank_id == 1) pump_set_state(1, false);
-    else if (tank_id == 2) pump_set_state(2, false);
-    else {
+    esp_err_t err = ESP_OK;
+    if (tank_id == 1) {
+        err = pump_set_state(1, false);
+    } else if (tank_id == 2) {
+        err = pump_set_state(2, false);
+    } else {
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid tank_id");
+        return ESP_FAIL;
+    }
+    
+    if (err != ESP_OK) {
+        httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to set pump state");
         return ESP_FAIL;
     }
 
@@ -348,13 +653,21 @@ static esp_err_t api_pump_stop_handler(httpd_req_t *req)
 }
 
 
-// ------------------------ SPIFFS INIT ------------------------
+/* ===================================================================
+ * SPIFFS FILE SYSTEM INITIALIZATION
+ * =================================================================== */
+
+/**
+ * @brief Initialize SPIFFS file system
+ * 
+ * Mounts SPIFFS partition with error checking and reporting.
+ */
 static void init_spiffs(void)
 {
     esp_vfs_spiffs_conf_t conf = {
-        .base_path = "/spiffs",
+        .base_path = SPIFFS_BASE_PATH,
         .partition_label = NULL,
-        .max_files = 10,
+        .max_files = SPIFFS_MAX_FILES,
         .format_if_mount_failed = false
     };
 
@@ -370,7 +683,8 @@ static void init_spiffs(void)
         return;
     }
 
-    size_t total = 0, used = 0;
+    size_t total = 0U;
+    size_t used = 0U;
     ret = esp_spiffs_info(conf.partition_label, &total, &used);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to get SPIFFS partition information (%s)", esp_err_to_name(ret));
@@ -380,7 +694,15 @@ static void init_spiffs(void)
 }
 
 
-// ------------------------ FILE SENDER ------------------------
+/**
+ * @brief Send static files from SPIFFS
+ * 
+ * Serves static files with proper bounds checking and error handling.
+ * Routes API endpoints to specific handlers.
+ * 
+ * @param req HTTP request pointer
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
 static esp_err_t serve_static_file(httpd_req_t *req)
 {
     char filepath[256];
@@ -392,27 +714,29 @@ static esp_err_t serve_static_file(httpd_req_t *req)
     }
 
     /* Don't serve static files for API endpoints - let them be handled by specific handlers */
-    if (strncmp(uri, "/api/", 5) == 0) {
+    if (strncmp(uri, "/api/", 5U) == 0) {
         ESP_LOGW(TAG, "serve_static_file: Rejecting API endpoint %s - should be handled by specific handler", uri);
         httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "Not found");
         return ESP_FAIL;
     }
 
-    /* map root to /index.html */
+    /* Map root to /index.html */
+    const char *file_uri = uri;
     if (strcmp(uri, "/") == 0) {
-        uri = "/index.html";
+        file_uri = "/index.html";
     }
 
-    size_t base_len = strlen("/spiffs");
-    size_t uri_len = strlen(uri);
-    if (base_len + uri_len + 1 > sizeof(filepath)) {
-        ESP_LOGW(TAG, "Requested URI too long: %s", uri);
+    size_t base_len = strlen(SPIFFS_BASE_PATH);
+    size_t uri_len = strlen(file_uri);
+    
+    if ((base_len + uri_len + 1U) > sizeof(filepath)) {
+        ESP_LOGW(TAG, "Requested URI too long: %s", file_uri);
         httpd_resp_send_err(req, 414, "URI Too Long");
         return ESP_FAIL;
     }
 
-    memcpy(filepath, "/spiffs", base_len);
-    memcpy(filepath + base_len, uri, uri_len);
+    (void)memcpy(filepath, SPIFFS_BASE_PATH, base_len);
+    (void)memcpy(&filepath[base_len], file_uri, uri_len);
     filepath[base_len + uri_len] = '\0';
 
     FILE *f = fopen(filepath, "rb");
@@ -422,30 +746,40 @@ static esp_err_t serve_static_file(httpd_req_t *req)
         return ESP_FAIL;
     }
 
-    static char buffer[1024];
-    size_t r;
-    while ((r = fread(buffer, 1, sizeof(buffer), f)) > 0) {
+    static char buffer[HTTP_BUFFER_SIZE];
+    size_t r = 0U;
+    while ((r = fread(buffer, 1U, sizeof(buffer), f)) > 0U) {
         if (httpd_resp_send_chunk(req, buffer, r) != ESP_OK) {
-            fclose(f);
+            (void)fclose(f);
             return ESP_FAIL;
         }
     }
 
-    fclose(f);
-    httpd_resp_send_chunk(req, NULL, 0); /* signal end of response */
+    (void)fclose(f);
+    /* signal end of response */
+    httpd_resp_send_chunk(req, NULL, 0U);
     return ESP_OK;
 }
 
 
 
 
-// ------------------------ HTTP SERVER ------------------------
+/* ===================================================================
+ * HTTP SERVER INITIALIZATION
+ * =================================================================== */
+
+/**
+ * @brief Start HTTP server and register all URI handlers
+ * 
+ * Registers all endpoint handlers and returns server handle.
+ * 
+ * @return HTTP server handle, or NULL if initialization failed
+ */
 static httpd_handle_t start_server(void)
 {
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-    config.stack_size = 4096;
-    /* increase allowed URI handlers before starting the server */
-    config.max_uri_handlers = 32;
+    config.stack_size = HTTP_STACK_SIZE;
+    config.max_uri_handlers = HTTP_MAX_HANDLERS;
 
     httpd_handle_t server = NULL;
     esp_err_t ret = httpd_start(&server, &config);
@@ -453,154 +787,185 @@ static httpd_handle_t start_server(void)
         ESP_LOGE(TAG, "Failed to start HTTP server: %s", esp_err_to_name(ret));
         return NULL;
     }
-    esp_err_t rc;
-    // ---- Pump 1 ON ----
+    
+    esp_err_t rc = ESP_OK;
+    
+    /* Register pump control endpoints */
     httpd_uri_t pump1_on = {
         .uri = "/pump1/on",
         .method = HTTP_GET,
-        .handler = pump1_on_handler
+        .handler = pump1_on_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump1_on);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump1_on.uri, esp_err_to_name(rc));
 
-    // ---- Pump 1 OFF ----
     httpd_uri_t pump1_off = {
         .uri = "/pump1/off",
         .method = HTTP_GET,
-        .handler = pump1_off_handler
+        .handler = pump1_off_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump1_off);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump1_off.uri, esp_err_to_name(rc));
 
-    // ---- Pump 2 ON ----
     httpd_uri_t pump2_on = {
         .uri = "/pump2/on",
         .method = HTTP_GET,
-        .handler = pump2_on_handler
+        .handler = pump2_on_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump2_on);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump2_on.uri, esp_err_to_name(rc));
 
-    // ---- Pump 2 OFF ----
     httpd_uri_t pump2_off = {
         .uri = "/pump2/off",
         .method = HTTP_GET,
-        .handler = pump2_off_handler
+        .handler = pump2_off_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump2_off);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump2_off.uri, esp_err_to_name(rc));
 
-    // ---- Pump 1 STATUS ----
     httpd_uri_t pump1_status = {
         .uri = "/pump1/status",
         .method = HTTP_GET,
-        .handler = pump1_status_handler
+        .handler = pump1_status_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump1_status);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump1_status.uri, esp_err_to_name(rc));
 
-    // ---- Pump 2 STATUS ----
     httpd_uri_t pump2_status = {
         .uri = "/pump2/status",
         .method = HTTP_GET,
-        .handler = pump2_status_handler
+        .handler = pump2_status_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &pump2_status);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", pump2_status.uri, esp_err_to_name(rc));
 
-        // ---- API Pump Start ----
+    /* Register API endpoints */
     httpd_uri_t api_pump_start = {
         .uri = "/api/pump/start",
         .method = HTTP_POST,
-        .handler = api_pump_start_handler
+        .handler = api_pump_start_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &api_pump_start);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_pump_start.uri, esp_err_to_name(rc));
 
-    // ---- API Pump Stop ----
     httpd_uri_t api_pump_stop = {
         .uri = "/api/pump/stop",
         .method = HTTP_POST,
-        .handler = api_pump_stop_handler
+        .handler = api_pump_stop_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &api_pump_stop);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_pump_stop.uri, esp_err_to_name(rc));
 
-    /* Provide a minimal /api/sensors endpoint so client polling doesn't spam 404s */
     httpd_uri_t api_sensors = {
         .uri = "/api/sensors",
         .method = HTTP_GET,
-        .handler = api_sensors_handler
+        .handler = api_sensors_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &api_sensors);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_sensors.uri, esp_err_to_name(rc));
 
-    // ---- API Flow Sensor ----
     httpd_uri_t api_flow = {
         .uri = "/api/flow",
         .method = HTTP_GET,
-        .handler = api_flow_handler
+        .handler = api_flow_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &api_flow);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_flow.uri, esp_err_to_name(rc));
 
-    // ---- API Ultrasonic Sensor ----
     httpd_uri_t api_ultrasonic = {
         .uri = "/api/ultrasonic",
         .method = HTTP_GET,
-        .handler = api_ultrasonic_handler
+        .handler = api_ultrasonic_handler,
+        .user_ctx = NULL
     };
     rc = httpd_register_uri_handler(server, &api_ultrasonic);
     if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register %s: %s", api_ultrasonic.uri, esp_err_to_name(rc));
 
-    /* root handler */
+    /* Register root and catch-all handlers */
     httpd_uri_t root = {
         .uri = "/",
         .method = HTTP_GET,
         .handler = serve_static_file,
         .user_ctx = NULL
     };
-    httpd_register_uri_handler(server, &root);
+    rc = httpd_register_uri_handler(server, &root);
+    if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register root handler: %s", esp_err_to_name(rc));
 
-    /* catch-all for static files */
     httpd_uri_t static_files = {
         .uri = "/*",
         .method = HTTP_GET,
         .handler = serve_static_file,
         .user_ctx = NULL
     };
-    httpd_register_uri_handler(server, &static_files);
+    rc = httpd_register_uri_handler(server, &static_files);
+    if (rc != ESP_OK) ESP_LOGW(TAG, "Failed to register catch-all handler: %s", esp_err_to_name(rc));
 
     ESP_LOGI(TAG, "HTTP server started");
     return server;
 }
 
 
-// ------------------------ WiFi SoftAP ------------------------
+/* ===================================================================
+ * WiFi SOFTAP INITIALIZATION
+ * =================================================================== */
+
+/**
+ * @brief WiFi event handler for SoftAP mode
+ * 
+ * Handles station connect and disconnect events.
+ * 
+ * @param arg Handler argument (unused)
+ * @param event_base Event base from esp_event
+ * @param event_id Event ID
+ * @param event_data Pointer to event-specific data
+ */
 static void wifi_event_handler(void *arg, esp_event_base_t event_base,
                                int32_t event_id, void *event_data)
 {
-    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_AP_STACONNECTED) {
+    (void)arg; /* Suppress unused parameter warning */
+    
+    if ((event_base == WIFI_EVENT) && (event_id == WIFI_EVENT_AP_STACONNECTED)) {
         wifi_event_ap_staconnected_t *evt = (wifi_event_ap_staconnected_t *)event_data;
         char mac_str[18];
-        snprintf(mac_str, sizeof(mac_str), "%02x:%02x:%02x:%02x:%02x:%02x",
-                 evt->mac[0], evt->mac[1], evt->mac[2], evt->mac[3], evt->mac[4], evt->mac[5]);
-        ESP_LOGI(TAG, "station %s join, AID=%d", mac_str, evt->aid);
-    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_AP_STADISCONNECTED) {
+        int written = snprintf(mac_str, sizeof(mac_str), "%02x:%02x:%02x:%02x:%02x:%02x",
+                 (unsigned)evt->mac[0], (unsigned)evt->mac[1], (unsigned)evt->mac[2], 
+                 (unsigned)evt->mac[3], (unsigned)evt->mac[4], (unsigned)evt->mac[5]);
+        if ((written >= 0) && ((size_t)written < sizeof(mac_str))) {
+            ESP_LOGI(TAG, "station %s join, AID=%d", mac_str, evt->aid);
+        }
+    } else if ((event_base == WIFI_EVENT) && (event_id == WIFI_EVENT_AP_STADISCONNECTED)) {
         wifi_event_ap_stadisconnected_t *evt = (wifi_event_ap_stadisconnected_t *)event_data;
         char mac_str[18];
-        snprintf(mac_str, sizeof(mac_str), "%02x:%02x:%02x:%02x:%02x:%02x",
-                 evt->mac[0], evt->mac[1], evt->mac[2], evt->mac[3], evt->mac[4], evt->mac[5]);
-        ESP_LOGI(TAG, "station %s leave, AID=%d", mac_str, evt->aid);
+        int written = snprintf(mac_str, sizeof(mac_str), "%02x:%02x:%02x:%02x:%02x:%02x",
+                 (unsigned)evt->mac[0], (unsigned)evt->mac[1], (unsigned)evt->mac[2], 
+                 (unsigned)evt->mac[3], (unsigned)evt->mac[4], (unsigned)evt->mac[5]);
+        if ((written >= 0) && ((size_t)written < sizeof(mac_str))) {
+            ESP_LOGI(TAG, "station %s leave, AID=%d", mac_str, evt->aid);
+        }
     }
 }
 
+/**
+ * @brief Initialize WiFi in SoftAP mode
+ * 
+ * Configures and starts WiFi as an access point.
+ */
 static void wifi_init_softap(void)
 {
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
 
-    esp_netif_create_default_wifi_ap();
+    (void)esp_netif_create_default_wifi_ap();
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
@@ -611,7 +976,7 @@ static void wifi_init_softap(void)
     wifi_config_t ap_config = {
         .ap = {
             .ssid = "ESP32S3_AP",
-            .ssid_len = 0,
+            .ssid_len = 0U,
             .password = "12345678",
             .channel = 1,
             .max_connection = 4,
@@ -619,9 +984,9 @@ static void wifi_init_softap(void)
         },
     };
 
-    if (strlen((const char*)ap_config.ap.password) == 0) {
+    if (strlen((const char *)ap_config.ap.password) == 0U) {
         ap_config.ap.authmode = WIFI_AUTH_OPEN;
-    } else if (strlen((const char*)ap_config.ap.password) < 8) {
+    } else if (strlen((const char *)ap_config.ap.password) < 8U) {
         ESP_LOGW(TAG, "Password too short for WPA, switching to OPEN");
         ap_config.ap.authmode = WIFI_AUTH_OPEN;
     }
@@ -634,9 +999,9 @@ static void wifi_init_softap(void)
 }
 
 
-// ------------------------ STARTUP TASK ------------------------
-/* Semaphore used to signal SPIFFS mount completion */
-static SemaphoreHandle_t spiffs_mounted_sem = NULL;
+// ===================================================================
+// STARTUP AND INITIALIZATION TASKS
+// ===================================================================
 
 static void spiffs_task(void *pvParameter)
 {
@@ -721,9 +1086,18 @@ static void us_sensor_task(void *pvParameter)
 static const char *FM_TAG = "FLOW";
 
 /* ISR: increment atomic pulse counter (IRAM_ATTR for ISR reliability) */
-static void flow_pulse_isr(void *arg)
+/**
+ * @brief ISR: increment atomic pulse counter
+ * 
+ * Called on rising edge of flow sensor signal.
+ * Uses atomic operations for thread-safe counter update.
+ * 
+ * @param arg ISR argument (unused)
+ */
+static void IRAM_ATTR flow_pulse_isr(void *arg)
 {
-    atomic_fetch_add_explicit(&s_pulse_count, 1u, memory_order_relaxed);
+    (void)arg; /* Suppress unused parameter warning */
+    (void)atomic_fetch_add_explicit(&s_pulse_count, 1U, memory_order_relaxed);
 }
 
 /* Measurement task: snapshot-and-reset the atomic counter periodically and compute L/min */
@@ -751,11 +1125,27 @@ void flow_task(void *pvParameter)
 
 /* Accessor: get latest flow values. Because we reset the counter in the task, callers
    should call this after the first measurement interval has elapsed to get meaningful data. */
+/**
+ * @brief Get latest flow sensor values
+ * 
+ * Retrieves the most recent snapshot of flow measurements.
+ * Values are updated by the flow measurement task.
+ * 
+ * @param out_lpm Pointer to store flow rate in liters per minute
+ * @param out_pulses Pointer to store pulse count in last interval
+ * @param out_liters Pointer to store liters in last interval
+ */
 void flow_get_latest(float *out_lpm, uint32_t *out_pulses, float *out_liters)
 {
-    if (out_pulses) *out_pulses = s_flow_state.last_pulses;
-    if (out_liters) *out_liters = s_flow_state.last_liters;
-    if (out_lpm) *out_lpm = s_flow_state.last_lpm;
+    if (out_pulses != NULL) {
+        *out_pulses = s_flow_state.last_pulses;
+    }
+    if (out_liters != NULL) {
+        *out_liters = s_flow_state.last_liters;
+    }
+    if (out_lpm != NULL) {
+        *out_lpm = s_flow_state.last_lpm;
+    }
 }
 
 static void startup_task(void *pvParameter)
