@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "RTES_CEP",
-    "project_version":    "a6379ce-dirty",
+    "project_version":    "b9690b5-dirty",
     "project_path":       "F:/RTES_CEP",
     "idf_path":           "F:/Espressif/frameworks/esp-idf-v5.1.6",
     "build_dir":          "F:/RTES_CEP/build",

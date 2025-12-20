@@ -1,0 +1,187 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 14 2025 14:09:42[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d580h (120192) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5a8 vaddr=3ffb0000 size=02a70h ( 10864) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96b84h (617348) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6bac vaddr=3ffb2a70 size=011cch (  4556) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7d80 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      b9690b5-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 17 2025 14:19:16[0m
+[0;32mI (505) cpu_start: ELF file SHA256:  cfc443767ad68abf...[0m
+[0;32mI (511) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (521) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (563) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (623) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (633) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (633) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (633) WEB: pumps_task: initializing pumps[0m
+[0;32mI (633) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (633) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (653) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (663) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (673) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) wifi:wifi driver task: 3ffc9d1c, prio:23, stack:6656, core=0[0m
+[0;32mI (693) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (703) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 19829)[0m
+[0;32mI (713) wifi:[0;32mI (703) WEB: Pumps initialized (GPIO 18, 19)[0m[0m
+wifi firmware version: 02461b5
+[0;32mI (713) WEB: pumps_task: pumps ready (stack high water mark: 2028 words)[0m
+[0;32mI (723) wifi:[0;32mI (713) WEB: spiffs_task: mounted[0m[0m
+wifi certification version: v7.0
+[0;32mI (733) WEB: http_task: starting HTTP server[0m
+[0;32mI (733) wifi:config NVS flash: enabled[0m
+[0;32mI (743) wifi:config nano formating: disabled[0m
+[0;32mI (743) WEB: HTTP server started[0m
+[0;32mI (753) wifi:[0;32mI (753) WEB: http_task: HTTP server started[0m[0m
+Init data frame dynamic rx buffer num: 32
+[0;32mI (763) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (763) wifi:Init management short buffer num: 32[0m
+[0;32mI (773) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (773) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (783) wifi:Init static rx buffer num: 10[0m
+[0;32mI (783) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (713) main_task: Returned from app_main()[0m
+[0;32mI (783) wifi_init: rx ba win: 6[0m
+[0;32mI (793) wifi_init: tcpip mbox: 32[0m
+[0;32mI (803) wifi_init: udp mbox: 6[0m
+[0;32mI (803) wifi_init: tcp mbox: 6[0m
+[0;32mI (803) wifi_init: tcp tx win: 5760[0m
+[0;32mI (813) wifi_init: tcp rx win: 5760[0m
+[0;32mI (813) wifi_init: tcp mss: 1440[0m
+[0;32mI (823) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (823) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (833) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (913) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (923) wifi:Total power save buffer number: 16[0m
+[0;32mI (923) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (923) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (923) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (933) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (943) WEB: wifi_task: wifi initialized[0m
+[0;33mW (1673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (1673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (2263) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2273) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2293) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2313) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:318, winSize:64[0m
+[0;32mI (2633) FLOW: pulses=68 freq=34.00Hz L=0.0040 flow=0.120 L/min[0m
+[0;33mW (2673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (2673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (3673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (3673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (4633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (4673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (4673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (5673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (5673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (6633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (6673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (6673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (7673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (7673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (8633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (8673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (8673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (9673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (9673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (10633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (10673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (10673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (11673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (11673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (12633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (12673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (12673) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (13673) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (13673) wifi:station: 02:ff:21:48:a6:15 join, AID=2, bgn, 20[0;33mW (13673) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m[0m
+
+[0;32mI (13683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (13703) WEB: station 02:ff:21:48:a6:15 join, AID=2[0m
+[0;32mI (13853) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (14143) wifi:<ba-add>idx:3 (ifx:1, 02:ff:21:48:a6:15), tid:0, ssn:16, winSize:64[0m
+[0;32mI (14633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (14683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (14683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (15683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (15683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (16633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (16683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (16683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (17663) WEB: pump1_on_handler: request received[0m
+[0;32mI (17663) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;33mW (17683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (17683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (19683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (19683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (20633) FLOW: pulses=2321 freq=1160.50Hz L=0.1365 flow=4.096 L/min[0m
+[0;33mW (20683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (20683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (21683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (21683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (22633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (22683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (22683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (23683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (23683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (24633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (24683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (24683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;33mW (25683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (25683) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (26633) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min[0m
+[0;33mW (26683) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (26683) ULTRASONIC_APP: Litres: 2.54[0m
