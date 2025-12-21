@@ -59,10 +59,10 @@ static const char *TAG = "WEB";
 #define US_TANK_HEIGHT_CM       (13.5f)
 #define US_TANK_SURFACE_AREA    (188.0f)
 #define US_MEASURE_MAX_CM       (400U)
-#define US_MEASURE_INTERVAL_MS  (1000U)
-/* 50% threshold: either distance <= 6.5 cm or volume >= 1.22 L */
-#define US_HALF_DISTANCE_CM     (6.5f)
-#define US_HALF_LITERS          (1.22f)
+#define US_MEASURE_INTERVAL_MS  (5000U)
+/* 50% threshold: 50% of 2.54L = 1.225L, 50% of 13.5cm height = 7 cm distance */
+#define US_HALF_DISTANCE_CM     (7.0f)
+#define US_HALF_LITERS          (1.225f)
 
 /* -------- HTTP Server Configuration -------- */
 #define HTTP_STACK_SIZE         (4096U)
@@ -99,7 +99,13 @@ static flow_state_t s_flow_state = {0.0f, 0.0f, 0U};
 /* Ultrasonic sensor state */
 static uint32_t s_ultrasonic_distance_cm = 0U;
 static float s_ultrasonic_litre = 0.0f;
-static atomic_bool s_alert_50 = ATOMIC_VAR_INIT(false);
+
+/* Cumulative flow tracking */
+static float s_cumulative_liters = 0.0f;
+
+/* Pump state tracking (for reliable state queries in open-drain mode) */
+static bool s_pump1_state = false;
+static bool s_pump2_state = false;
 
 /* Semaphore used to signal SPIFFS mount completion */
 static SemaphoreHandle_t spiffs_mounted_sem = NULL;
@@ -286,9 +292,17 @@ static esp_err_t pump_set_state(int pump_id, bool on)
         }
     }
     if (on) {
-        /* clear any previous 50% alert when pumps turn on again */
-        atomic_store(&s_alert_50, false);
+        /* reset cumulative on pump start */
+        s_cumulative_liters = 0.0f;
     }
+    
+    /* Update software state tracking */
+    if (pump_id == 1) {
+        s_pump1_state = on;
+    } else if (pump_id == 2) {
+        s_pump2_state = on;
+    }
+    
     ESP_LOGI(TAG, "pump_set_state: pump %d -> %s (gpio %u level=%d)", pump_id, on ? "ON" : "OFF", (unsigned)gpio_num, read);
     return ESP_OK;
 }
@@ -301,21 +315,14 @@ static esp_err_t pump_set_state(int pump_id, bool on)
  */
 static bool pump_get_state(int pump_id)
 {
-    uint32_t gpio_num;
-    
     if (pump_id == 1) {
-        gpio_num = PUMP1_GPIO;
+        return s_pump1_state;
     } else if (pump_id == 2) {
-        gpio_num = PUMP2_GPIO;
+        return s_pump2_state;
     } else {
         ESP_LOGE(TAG, "pump_get_state: invalid pump_id %d", pump_id);
         return false;
     }
-    
-    int lvl = gpio_get_level((gpio_num_t)gpio_num);
-    /* Map physical level to logical ON/OFF using configured active level */
-    int active = (PUMP_ACTIVE_LEVEL != 0U) ? 1 : 0;
-    return (lvl == active);
 }
 
 
@@ -572,11 +579,9 @@ static esp_err_t api_flow_handler(httpd_req_t *req)
 static esp_err_t api_ultrasonic_handler(httpd_req_t *req)
 {
     ESP_LOGI(TAG, "api_ultrasonic_handler: GET /api/ultrasonic called");
-    char buf[128];
-    bool alert = atomic_load(&s_alert_50);
-    int written = snprintf(buf, sizeof(buf), "{\"distance_cm\":%u,\"litre\":%.2f,\"alert50\":%s}", 
-                          (unsigned)s_ultrasonic_distance_cm, (double)s_ultrasonic_litre,
-                          alert ? "true" : "false");
+    char buf[256];
+    int written = snprintf(buf, sizeof(buf), "{\"distance_cm\":%u,\"current_level\":%.2f,\"total_received\":%.2f}", 
+                          (unsigned)s_ultrasonic_distance_cm, (double)s_ultrasonic_litre, (double)s_cumulative_liters);
     
     if ((written < 0) || ((size_t)written >= sizeof(buf))) {
         httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Buffer overflow");
@@ -1094,15 +1099,17 @@ static void us_sensor_task(void *pvParameter)
             ESP_LOGW(US_TAG, "ultrasonic_measure_cm error: %s", esp_err_to_name(rc));
         }
 
-        /* Auto-stop pumps at 50% level */
+        /* Auto-stop at 50% threshold */
+        bool distance_at_threshold = ((float)s_ultrasonic_distance_cm <= US_HALF_DISTANCE_CM);
+        bool volume_at_threshold = (s_cumulative_liters >= US_HALF_LITERS);
         bool pump1_on = pump_get_state(1);
         bool pump2_on = pump_get_state(2);
-        bool at_threshold = ((float)s_ultrasonic_distance_cm <= US_HALF_DISTANCE_CM) || (s_ultrasonic_litre >= US_HALF_LITERS);
-        if (at_threshold && (pump1_on || pump2_on)) {
+        
+        if ((distance_at_threshold || volume_at_threshold) && (pump1_on || pump2_on)) {
+            ESP_LOGI(US_TAG, "50%% threshold reached (dist: %u cm, cumulative: %.2f L). Stopping pumps.", 
+                     (unsigned)s_ultrasonic_distance_cm, (double)s_cumulative_liters);
             (void)pump_set_state(1, false);
             (void)pump_set_state(2, false);
-            atomic_store(&s_alert_50, true);
-            ESP_LOGI(US_TAG, "50%% level reached. Pumps stopped.");
         }
 
         vTaskDelay(pdMS_TO_TICKS(US_MEASURE_INTERVAL_MS));
@@ -1145,8 +1152,13 @@ void flow_task(void *pvParameter)
         s_flow_state.last_pulses = pulses;
         s_flow_state.last_liters = liters;
         s_flow_state.last_lpm = lpm;
+        
+        /* Accumulate total received when pump is running */
+        if (pump_get_state(1) || pump_get_state(2)) {
+            s_cumulative_liters += liters;
+        }
 
-        ESP_LOGI(FM_TAG, "pulses=%" PRIu32 " freq=%.2fHz L=%.4f flow=%.3f L/min", pulses, (pulses / seconds), liters, lpm);
+        ESP_LOGI(FM_TAG, "pulses=%" PRIu32 " freq=%.2fHz L=%.4f flow=%.3f L/min cumulative=%.4f", pulses, (pulses / seconds), liters, lpm, s_cumulative_liters);
     }
 }
 
@@ -1203,7 +1215,7 @@ static void startup_task(void *pvParameter)
     r = xTaskCreatePinnedToCore(pumps_task, "pumps", 4096, NULL, 5, NULL, tskNO_AFFINITY);
     if (r != pdPASS) ESP_LOGW(TAG, "Failed to create pumps_task");
 
-    r = xTaskCreatePinnedToCore(us_sensor_task, "us_sensor", 4096, NULL, 5, NULL, tskNO_AFFINITY);
+    r = xTaskCreatePinnedToCore(us_sensor_task, "us_sensor", 4096, NULL, 6, NULL, tskNO_AFFINITY);
     if (r != pdPASS) ESP_LOGW(TAG, "Failed to create us_sensor task");
 
     xTaskCreatePinnedToCore(flow_task, "flow", 4096, NULL, 5, NULL, tskNO_AFFINITY);

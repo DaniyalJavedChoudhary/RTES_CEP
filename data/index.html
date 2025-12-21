@@ -505,15 +505,6 @@
         }
 
         // Fetch ultrasonic sensor data
-        let alertShown50 = false;
-
-        function showNotification(message) {
-            const el = document.getElementById('toast');
-            el.textContent = message;
-            el.classList.add('show');
-            setTimeout(() => { el.classList.remove('show'); }, 5000);
-        }
-
         function fetchUltrasonicData() {
             console.log('Fetching /api/ultrasonic...');
             fetch('/api/ultrasonic')
@@ -526,25 +517,17 @@
                 })
                 .then(data => {
                     console.log('Ultrasonic data received:', data);
-                    if (data && typeof data.distance_cm === 'number' && typeof data.litre === 'number') {
+                    if (data && typeof data.distance_cm === 'number' && typeof data.current_level === 'number' && typeof data.total_received === 'number') {
                         document.getElementById('sensor-distance').textContent = 
                             data.distance_cm;
                         
-                        // Update output tank with litre value
-                        systemState.output.total = data.litre;
-                        systemState.output.level = data.litre;
+                        // Update output tank with separate current level and total received
+                        systemState.output.total = data.total_received;
+                        systemState.output.level = data.current_level;
                         document.getElementById('output-total').textContent = 
-                            data.litre.toFixed(2);
+                            data.total_received.toFixed(2);
                         document.getElementById('output-level').textContent = 
-                            data.litre.toFixed(2);
-
-                        // Show popup when backend signals 50% stop
-                        if (data.alert50 === true && !alertShown50) {
-                            alertShown50 = true;
-                            showNotification('Pump is stopped, 50% tank filled');
-                            // refresh pump status to reflect auto-stop
-                            fetchPumpStatus();
-                        }
+                            data.current_level.toFixed(2);
                     } else {
                         console.error('Invalid ultrasonic data structure:', data);
                     }
@@ -572,7 +555,7 @@
             fetchPumpStatus();
         }
 
-        // Poll sensor data every 2 seconds (matches MEASURE_INTERVAL_MS)
+        // Poll sensor data every 2000ms
         setInterval(fetchSensorData, 2000);
 
         // Initial fetch
