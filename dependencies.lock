@@ -42,7 +42,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.5.0
+    version: 5.1.6
   mateusglucas/yf_s201:
     component_hash: 780a3eb4148f3eee525ad0d43fdcdec867fd30ab83c5bf21b879b1958aa11b64
     dependencies:

@@ -1,0 +1,2633 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 20 2025 14:48:31[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d5a8h (120232) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5d0 vaddr=3ffb0000 size=02a48h ( 10824) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96c04h (617476) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6c2c vaddr=3ffb2a48 size=011f4h (  4596) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7e28 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      7751890-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 20 2025 14:48:22[0m
+[0;32mI (506) cpu_start: ELF file SHA256:  14f4c3f81c078309...[0m
+[0;32mI (512) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (522) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (539) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (564) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (623) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (623) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (623) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (623) WEB: pumps_task: initializing pumps[0m
+[0;32mI (623) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (633) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (643) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (663) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) wifi:[0;32mI (683) WEB: Pumps initialized (GPIO 18, 19)[0m[0m
+wifi driver task: 3ffc9cc8, prio:23, stack:6656, core=0
+[0;32mI (693) WEB: pumps_task: pumps ready (stack high water mark: 1912 words)[0m
+[0;32mI (703) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 21335)[0m
+[0;32mI (703) wifi:[0;32mI (713) WEB: spiffs_task: mounted[0m[0m
+wifi firmware version: 02461b5[0;32mI (713) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (723) wifi:wifi certification version: v7.0[0m
+[0;32mI (723) wifi:config NVS flash: enabled[0m
+[0;32mI (723) WEB: HTTP server started[0m
+[0;32mI (733) wifi:[0;32mI (733) WEB: http_task: HTTP server started[0m[0m
+config nano formating: disabled
+[0;32mI (743) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (743) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (753) wifi:Init management short buffer num: 32[0m
+[0;32mI (753) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (763) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (763) wifi:Init static rx buffer num: 10[0m
+[0;32mI (763) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (703) main_task: Returned from app_main()[0m
+[0;32mI (773) wifi_init: rx ba win: 6[0m
+[0;32mI (783) wifi_init: tcpip mbox: 32[0m
+[0;32mI (783) wifi_init: udp mbox: 6[0m
+[0;32mI (783) wifi_init: tcp mbox: 6[0m
+[0;32mI (793) wifi_init: tcp tx win: 5760[0m
+[0;32mI (793) wifi_init: tcp rx win: 5760[0m
+[0;32mI (803) wifi_init: tcp mss: 1440[0m
+[0;32mI (803) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (813) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (823) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (903) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (903) wifi:Total power save buffer number: 16[0m
+[0;32mI (903) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (903) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (913) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (913) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (923) WEB: wifi_task: wifi initialized[0m
+[0;32mI (1643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (1643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (2623) FLOW: pulses=22 freq=11.00Hz L=0.0013 flow=0.039 L/min cumulative=0.0013[0m
+[0;32mI (2643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (2643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (3643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (3643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (4623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (4643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (4643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (5073) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (5083) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (5103) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (5243) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (5293) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:3, winSize:64[0m
+[0;32mI (5323) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5333) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5523) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5523) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5533) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5553) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5563) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5563) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5583) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5583) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5593) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5613) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (5643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (5793) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5803) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5803) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5813) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5813) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5823) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5833) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5843) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5843) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5863) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5863) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5873) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5873) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5953) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5953) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5953) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5973) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5973) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5973) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (5993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6073) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6083) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6093) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6103) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6103) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6113) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6133) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6143) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6153) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6153) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6173) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6173) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6243) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6243) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6273) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6273) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6283) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6283) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6303) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6303) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (6313) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (6643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (6643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (7363) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7363) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7373) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (7383) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7383) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (7643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (7643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (8623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (8643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (8643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (9193) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9193) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9203) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9203) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9223) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9293) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9303) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9313) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9393) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9403) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9413) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9413) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9493) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9503) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9513) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9513) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9523) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9623) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9633) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (9643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (9703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9703) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9713) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9713) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9733) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9793) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9803) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9803) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9813) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9853) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9903) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9903) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9903) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9913) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (9923) wifi:<ba-add>idx:3 (ifx:1, f2:c6:4e:59:10:be), tid:1, ssn:0, winSize:64[0m
+[0;32mI (9923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (9963) wifi:<ba-add>idx:4 (ifx:1, f2:c6:4e:59:10:be), tid:5, ssn:0, winSize:64[0m
+[0;32mI (10003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10003) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10013) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10013) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10033) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10103) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10103) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10123) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10223) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10303) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10303) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10323) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10333) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10403) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10403) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10423) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10423) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10433) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10503) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10503) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10523) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10523) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10533) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10613) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (10623) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10633) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10643) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (10643) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (10653) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10713) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10723) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10723) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10733) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10813) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10813) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10823) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10823) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10833) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10913) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (10913) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (10923) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (10923) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (10943) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11013) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11013) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11023) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11113) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11113) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11133) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11133) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11143) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11223) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11313) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11313) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11323) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11333) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11343) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11413) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11433) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11513) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11513) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11533) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11533) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11553) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11613) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11623) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11633) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11643) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11653) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (11653) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (11713) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11723) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11733) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11733) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11753) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11823) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11823) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11833) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11833) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11853) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11923) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11923) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (11933) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11943) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (11953) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12023) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12023) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12033) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12033) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12053) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12123) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12123) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12133) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12133) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12153) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12223) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12233) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12323) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12323) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12333) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12343) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12353) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12433) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12453) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12523) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12523) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12533) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12543) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12553) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (12623) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12623) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12643) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12643) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12653) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (12653) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (12653) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12733) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12733) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12743) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12743) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12763) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12833) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12833) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12843) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12843) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12863) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (12923) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (12923) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (12943) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (12943) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (12953) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13023) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13023) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13033) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13043) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13053) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13133) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13133) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13143) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13143) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13153) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13243) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13323) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13333) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13333) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13343) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13353) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13443) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13463) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13533) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13533) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13543) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13543) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13563) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13633) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13633) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13643) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13643) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13653) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (13653) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13653) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (13733) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13733) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13743) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13743) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13763) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13833) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13833) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13843) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13843) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13863) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (13933) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (13933) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (13943) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (13943) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (13963) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14033) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14033) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14053) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14053) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14063) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14133) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14133) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14143) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14143) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14163) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14243) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14263) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14333) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14333) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14343) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14343) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14363) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14433) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14443) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14463) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14533) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14533) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14543) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14553) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14563) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (14643) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14643) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14653) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14653) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14663) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (14663) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (14673) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14733) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14733) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14743) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14753) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14763) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14843) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14843) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14853) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14853) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14863) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (14943) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (14943) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (14953) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (14963) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (14973) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15043) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15043) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15053) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15053) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15073) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15143) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15143) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15153) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15153) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15243) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15243) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15253) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15253) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15273) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15343) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15343) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15353) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15353) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15373) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15443) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15443) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15453) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15453) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15473) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15543) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15543) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15563) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15573) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15643) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15643) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15653) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15663) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (15673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (15683) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15743) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15743) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15753) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15753) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15773) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15843) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15843) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15853) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15853) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15873) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (15943) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (15943) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (15953) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (15953) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (15973) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16043) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16043) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16063) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16063) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16073) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16143) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16143) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16153) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16163) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16243) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16243) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16253) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16253) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16273) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16433) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16523) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16523) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16523) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16533) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16543) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (16623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16633) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16633) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16643) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16653) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (16673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (16723) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16723) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16733) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16733) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16753) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16823) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16823) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16833) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16843) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16853) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (16923) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (16933) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (16943) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (16943) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (16953) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17023) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17023) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17033) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17043) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17053) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17123) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17123) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17133) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17133) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17153) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17233) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17233) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17243) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17323) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17323) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17343) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17343) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17353) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17433) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;33mW (17443) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (17553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17563) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17573) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17583) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;33mW (17623) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;33mW (17623) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (17673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (17673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (17673) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17673) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17693) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17693) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17713) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17773) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17773) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17783) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17783) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17803) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17873) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17873) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17883) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17893) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (17903) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (17973) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (17973) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (17993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (17993) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18083) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18083) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18093) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18093) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18113) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18183) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18183) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18193) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18193) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18203) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18273) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18283) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18293) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18293) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18303) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18383) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18383) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18393) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18393) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18403) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18483) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18483) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18493) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18503) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18513) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18583) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18583) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18593) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18593) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18603) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (18673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (18673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (18683) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18683) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18693) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18693) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18713) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18783) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18783) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18793) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18793) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18813) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18903) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (18903) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (18923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (18983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (18983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (18993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19003) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19083) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19083) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19093) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19103) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19113) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19183) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19183) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19193) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19203) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19213) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19283) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19293) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19303) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19303) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19393) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19403) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19413) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19483) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19483) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19493) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19503) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19513) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (19673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (19693) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19693) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19703) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19703) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19723) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19793) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19793) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19803) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19803) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19823) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (19903) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (19903) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (19923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (19993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (19993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20003) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20023) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20093) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20093) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20103) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20113) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20123) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20213) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20293) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20313) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20393) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20413) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20423) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20493) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20493) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20513) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20513) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20523) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20613) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20613) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (20623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (20673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (20693) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (20703) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (20713) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (20713) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (20723) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (20733) wifi:station: f2:c6:4e:59:10:be leave, AID = 1, reason = 8, bss_flags is 691299, bss:0x3ffbede8[0m
+[0;32mI (20733) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (20743) wifi:<ba-del>idx:2, tid:0[0m
+[0;32mI (20743) wifi:<ba-del>idx:3, tid:1[0m
+[0;32mI (20753) wifi:<ba-del>idx:4, tid:5[0m
+[0;32mI (20753) WEB: station f2:c6:4e:59:10:be leave, AID=1[0m
+[0;32mI (21443) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (21443) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (21473) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (21503) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;32mI (21523) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21533) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21533) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21553) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21563) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21563) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21583) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21583) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21593) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21623) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (21623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21633) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21633) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21643) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21643) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21663) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (21673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (21683) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21683) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21693) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21703) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21703) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21723) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21723) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21733) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21733) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21753) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21763) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21773) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21783) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21783) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21803) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21803) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21813) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21813) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21833) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21833) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21843) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21853) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21863) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21863) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21873) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21883) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21913) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21913) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21933) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21933) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21943) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21953) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21953) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (21963) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (21963) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (21983) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (21993) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (21993) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22013) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22023) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22113) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22113) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22123) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22123) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22213) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22223) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22233) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22313) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22333) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22333) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22403) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22413) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22423) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22423) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22433) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22513) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22513) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22523) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22523) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22543) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (22673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (22673) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (22673) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22683) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22693) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22693) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22713) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22723) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22723) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22733) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22733) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22743) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22833) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22833) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22843) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (22853) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22853) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22963) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (22963) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (22983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (22983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (22993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23103) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23103) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23113) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;33mW (23143) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;33mW (23143) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;33mW (23233) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (23253) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23253) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23263) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23273) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23283) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23353) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23353) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23363) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23373) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23373) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23453) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23453) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23473) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23473) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23483) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23553) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23553) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23573) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23573) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23583) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23653) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23663) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23673) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23673) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23673) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (23683) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (23693) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23763) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23763) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23773) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23783) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23863) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23863) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23873) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23873) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23893) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (23963) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (23963) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (23973) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (23973) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (23983) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24063) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24063) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24073) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24083) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24093) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24163) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24163) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24183) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24183) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;33mW (24193) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (24263) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (24293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24293) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24303) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24303) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24383) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24383) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24403) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24413) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24483) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24493) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24503) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24503) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24513) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24613) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (24693) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24693) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24693) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (24703) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (24703) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24713) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24733) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24803) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24803) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24813) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24823) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24823) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (24903) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (24903) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (24923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (24993) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (24993) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25003) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25003) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25023) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25093) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25093) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25103) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25113) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25123) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25193) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25193) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25203) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25213) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25223) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25303) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25313) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25393) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25413) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25423) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25503) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25503) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25513) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25513) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25533) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25613) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25613) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25703) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25703) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (25713) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (25713) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25723) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25733) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25793) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25803) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25813) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25813) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25823) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (25893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (25903) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (25913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (25913) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (25923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26003) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26013) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26013) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26033) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26103) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26103) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26113) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26193) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26203) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26213) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26303) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26303) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26313) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26313) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26333) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26403) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26403) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26413) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26413) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26433) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26503) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26503) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26513) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26523) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26533) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26603) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26603) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26613) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26613) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0013[0m
+[0;32mI (26633) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26703) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26713) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (26713) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (26713) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26723) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26743) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26803) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26803) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26813) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26813) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26833) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (26903) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (26903) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (26913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (26913) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (26933) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (27013) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27013) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27023) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (27103) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27103) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27123) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (27203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27223) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27223) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (27303) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27303) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27323) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27323) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27333) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (27353) WEB: pump1_on_handler: request received[0m
+[0;32mI (27353) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (27403) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27403) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27413) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (27423) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27423) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27503) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27503) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27523) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27523) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27533) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (27603) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27603) WEB: api_ultrasonic_handler response: {"distance_cm":8,"current_level":1.03,"total_received":0.00}[0m
+[0;32mI (27613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27623) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27633) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+_received":0.00}[0m
+[0;32mI (27843) WEB: pump1_status: {"pump27843) WEB: pump1_status: {"pump27843) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+":1,"state":"ON"}[0m
+[0;32mI (27913) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (27913) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (27923) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (27923) WEB: api_ultrasonic_handler response: {"distance_cm":0,"current_level":2.54,"total_received":0.00}[0m
+[0;32mI (27933) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (28013) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (28013) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (28023) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (28023) WEB: api_ultrasonic_handler response: {"distance_cm":0,"current_level":2.54,"total_received":0.00}[0m
+[0;32mI (28043) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (28113) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (28113) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (28133) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (28133) WEB: api_ultrasonic_handler response: {"distance_cm":0,"current_level":2.54,"total_received":0.00}[0m
+[0;32mI (28143) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (28223) WEB: api_flow_handl                                nic_handler: GET /api/ultrasonic called[0m
+[0;32mI (29143) WEB: api_ultrasonic_handler response: {"distance_cm":0,"current_level":2.54,"total_received":0.40}[0m
+[0;32mI (29153) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+[0;32mI (29223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (29223) WEB: api_flow_handler response: {"flow_rate_lpm":11.933,"liters":0.3978,"pulses":6762}[0m
+[0;32mI (29233) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (29233) WEB: api_ultrasonic_handler resp                                ance_cm":7,"current_level":1.22,"total_received":1.01}[0m
+[0;32mI (31563) WEB: pump1_status: {"pump":1,"state":"ON"}[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 20 2025 14:48:31[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d5a8h (120232) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d5d0 vaddr=3ffb0000 size=02a48h ( 10824) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96c04h (617476) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6c2c vaddr=3ffb2a48 size=011f4h (  4596) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7e28 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      7751890-dirty[0m
+[0;32mI (499) cpu_start: Compile time:     Dec 20 2025 14:48:22[0m
+[0;32mI (506) cpu_start: ELF file SHA256:  14f4c3f81c078309...[0m
+[0;32mI (512) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (522) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (526) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (539) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (544) heap_init: At 3FFB8138 len 00027EC8 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (564) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (623) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (623) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (623) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (623) WEB: pumps_task: initializing pumps[0m
+[0;32mI (623) WEB: startup_task: all init tasks created, deleting self[0m
+[0;33mW (633) ULTRASONIC_APP: ultrasonic_measure_cm error: ERROR[0m
+[0;32mI (643) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (663) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) wifi:[0;32mI (683) WEB: Pumps initialized (GPIO 18, 19)[0m[0m
+wifi driver task: 3ffc9cc8, prio:23, stack:6656, core=0
+[0;32mI (693) WEB: pumps_task: pumps ready (stack high water mark: 1912 words)[0m
+[0;32mI (703) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 21335)[0m
+[0;32mI (703) wifi:[0;32mI (713) WEB: spiffs_task: mounted[0m[0m
+wifi firmware version: 02461b5[0;32mI (713) WEB: http_task: starting HTTP server[0m
+
+[0;32mI (723) wifi:wifi certification version: v7.0[0m
+[0;32mI (723) wifi:config NVS flash: enabled[0m
+[0;32mI (723) WEB: HTTP server started[0m
+[0;32mI (733) wifi:[0;32mI (733) WEB: http_task: HTTP server started[0m[0m
+config nano formating: disabled
+[0;32mI (743) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (743) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (753) wifi:Init management short buffer num: 32[0m
+[0;32mI (753) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (763) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (763) wifi:Init static rx buffer num: 10[0m
+[0;32mI (763) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (703) main_task: Returned from app_main()[0m
+[0;32mI (773) wifi_init: rx ba win: 6[0m
+[0;32mI (783) wifi_init: tcpip mbox: 32[0m
+[0;32mI (783) wifi_init: udp mbox: 6[0m
+[0;32mI (783) wifi_init: tcp mbox: 6[0m
+[0;32mI (793) wifi_init: tcp tx win: 5760[0m
+[0;32mI (793) wifi_init: tcp rx win: 5760[0m
+[0;32mI (803) wifi_init: tcp mss: 1440[0m
+[0;32mI (803) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (813) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (823) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (903) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (903) wifi:Total power save buffer number: 16[0m
+[0;32mI (903) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (903) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (913) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (913) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (923) WEB: wifi_task: wifi initialized[0m
+[0;32mI (1643) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (1643) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (2273) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2273) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2293) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2303) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:420, winSize:64[0m
+[0;32mI (2623) FLOW: pulses=26 freq=13.00Hz L=0.0015 flow=0.046 L/min cumulative=0.0015[0m
+[0;32mI (2643) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (2643) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (2663) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2683) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2683) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2693) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2693) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2713) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2713) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2723) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2733) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2733) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2753) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2753) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2763) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2763) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2783) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2793) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2793) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2813) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2823) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2823) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2833) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2833) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2843) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2853) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2863) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2873) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2883) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2893) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2893) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2893) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2913) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2923) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2933) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2943) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2943) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (2953) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2963) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (2963) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (2983) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (2983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (2993) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3003) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3013) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3013) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3033) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3033) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3043) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3043) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3063) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3063) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3073) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3083) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3093) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3093) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3113) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3123) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3123) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3143) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3143) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3153) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3163) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3173) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3173) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3183) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3183) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3203) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3223) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3243) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3253) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3263) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3263) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3283) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3283) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3293) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3313) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3323) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3333) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3333) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3353) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3353) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3363) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3383) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3383) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3393) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3413) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3413) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3423) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3443) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3453) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3463) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3463) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3473) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3483) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3493) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3503) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3503) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3503) wifi:<ba-add>idx:3 (ifx:1, f2:c6:4e:59:10:be), tid:1, ssn:8, winSize:64[0m
+[0;32mI (3513) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3523) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3533) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3543) wifi:<ba-add>idx:4 (ifx:1, f2:c6:4e:59:10:be), tid:5, ssn:8, winSize:64[0m
+[0;32mI (3553) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3553) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3563) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3573) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3583) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3583) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3603) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3603) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3603) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3623) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3633) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3643) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (3643) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3643) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (3653) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3663) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3663) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3683) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3683) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3703) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3713) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3713) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3723) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3723) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3743) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3743) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3763) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3763) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3773) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3773) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3793) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3793) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3813) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3813) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3823) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3833) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3843) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3843) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3863) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3863) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3883) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3883) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3893) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3893) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3913) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3913) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3933) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3933) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (3943) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (3953) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3953) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3963) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (3963) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (3983) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (3983) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4003) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4003) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4013) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4013) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4033) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4033) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4043) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4053) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4063) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4063) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4073) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4073) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4093) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4093) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4113) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4123) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4133) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4143) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4143) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4153) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4163) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4183) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4183) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4193) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4193) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4213) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4213) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4223) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4233) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4243) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4253) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4273) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4273) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4273) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4293) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4293) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4293) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4303) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4303) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4323) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4323) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4343) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4343) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4363) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4363) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4373) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4383) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4393) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4393) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4403) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4413) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4413) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4423) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4433) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4443) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4453) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4453) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4463) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4473) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4483) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4493) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4493) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4503) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4503) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4523) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4523) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4533) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4543) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4553) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4563) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4573) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4573) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4583) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4593) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4603) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4613) WEB: api_flow_handler response: {"flow_rate_lpm":0.046,"liters":0.0015,"pulses":26}[0m
+[0;32mI (4613) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0015[0m
+[0;32mI (4623) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4643) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4653) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4653) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4653) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (4663) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (4673) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4673) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4693) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4703) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4703) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4713) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4713) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4723) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4733) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4743) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4753) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4763) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4763) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4783) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4793) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4793) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4813) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4813) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4823) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4833) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4833) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4853) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4853) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4863) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4863) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4883) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4903) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4903) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4913) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4923) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4923) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4953) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4953) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4963) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (4963) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (4983) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (4983) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (4983) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (4993) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5013) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5013) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5023) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5033) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5033) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5043) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5053) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5053) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5073) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5073) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5083) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5093) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5093) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5113) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5113) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5123) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5123) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5143) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5143) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5153) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5163) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5173) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5183) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5183) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5193) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5203) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5203) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5203) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5213) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5223) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5233) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5243) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5243) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5263) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5263) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5273) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5283) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5293) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5293) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5303) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5313) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5313) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5323) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5333) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5343) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5343) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5363) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5373) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5383) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5383) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5383) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5403) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5403) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5423) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5423) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5433) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5433) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5453) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5453) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5463) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5463) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5483) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5493) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5493) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5503) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5513) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5523) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5523) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5533) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5533) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5553) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5553) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5563) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5563) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5583) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5593) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5593) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5603) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5613) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5613) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5623) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5633) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5643) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5653) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5653) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5663) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5663) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5673) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (5683) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (5683) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5743) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5743) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5753) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5763) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5773) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5843) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5843) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5863) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5863) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5873) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (5943) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5953) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5963) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5963) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (5973) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6043) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6043) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6063) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6063) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6073) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6153) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6153) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6163) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6163) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6183) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6253) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6253) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6263) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6263) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6283) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6353) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6353) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6363) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6363) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6383) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6453) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6453) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6463) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6463) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6483) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6553) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6553) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6563) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6573) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6583) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6623) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0015[0m
+[0;32mI (6653) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6653) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6663) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6663) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6683) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6683) ULTRASONIC_APP: Distance: 5 cm[0m
+[0;32mI (6683) ULTRASONIC_APP: Litres: 1.60[0m
+[0;32mI (6753) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6753) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6763) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6773) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6783) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6853) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6853) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6863) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6873) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6883) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6953) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (6953) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (6963) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (6973) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (6983) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (7053) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7053) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7073) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7073) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (7083) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (7163) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7163) WEB: api_ultrasonic_handler response: {"distance_cm":5,"current_level":1.60,"total_received":0.00}[0m
+[0;32mI (7173) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7173) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7183) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m

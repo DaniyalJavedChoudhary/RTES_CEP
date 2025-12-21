@@ -5,7 +5,7 @@
     "*.c": "c",
     "*.h": "c"
   },
-"idf.pythonInstallPath": "C:\\Users\\abdul\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
+"idf.pythonInstallPath": "F:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe",
 "idf.portWin": "COM8",
 "idf.flashType": "UART"
 }

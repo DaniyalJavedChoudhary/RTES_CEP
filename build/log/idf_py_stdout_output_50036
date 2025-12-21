@@ -1,0 +1,162 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7116
+ho 0 tail 12 room 4
+load:0x40078000,len:15688
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (33) boot: ESP-IDF v5.1.6-dirty 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec 20 2025 14:48:31[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.1[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (86) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (94) boot:  3 factory          factory app      00 00 00100000 00100000[0m
+[0;32mI (101) boot:  4 storage          Unknown data     01 82 00200000 00100000[0m
+[0;32mI (109) boot: End of partition table[0m
+[0;32mI (113) boot: Defaulting to factory image[0m
+[0;32mI (118) esp_image: segment 0: paddr=00100020 vaddr=3f400020 size=1d610h (120336) map[0m
+[0;32mI (170) esp_image: segment 1: paddr=0011d638 vaddr=3ffb0000 size=029e0h ( 10720) load[0m
+[0;32mI (174) esp_image: segment 2: paddr=00120020 vaddr=400d0020 size=96cach (617644) map[0m
+[0;32mI (399) esp_image: segment 3: paddr=001b6cd4 vaddr=3ffb29e0 size=0125ch (  4700) load[0m
+[0;32mI (401) esp_image: segment 4: paddr=001b7f38 vaddr=40080000 size=169f0h ( 92656) load[0m
+[0;32mI (454) boot: Loaded app from partition at offset 0x100000[0m
+[0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[0;32mI (466) cpu_start: Multicore app[0m
+[0;32mI (467) cpu_start: Pro cpu up.[0m
+[0;32mI (467) cpu_start: Starting app cpu, entry point is 0x400813d0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (484) cpu_start: Pro cpu start user code[0m
+[0;32mI (484) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (484) cpu_start: Application information:[0m
+[0;32mI (489) cpu_start: Project name:     RTES_CEP[0m
+[0;32mI (494) cpu_start: App version:      7751890-dirty[0m
+[0;32mI (500) cpu_start: Compile time:     Dec 20 2025 14:48:22[0m
+[0;32mI (506) cpu_start: ELF file SHA256:  15135e3803492d0a...[0m
+[0;32mI (512) cpu_start: ESP-IDF:          v5.1.6-dirty[0m
+[0;32mI (517) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (522) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (527) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (532) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (539) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (545) heap_init: At 3FFB8140 len 00027EC0 (159 KiB): DRAM[0m
+[0;32mI (551) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (557) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (564) heap_init: At 400969F0 len 00009610 (37 KiB): IRAM[0m
+[0;32mI (571) spi_flash: detected chip: generic[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+[0;32mI (579) app_start: Starting scheduler on CPU0[0m
+[0;32mI (583) app_start: Starting scheduler on CPU1[0m
+[0;32mI (583) main_task: Started on CPU0[0m
+[0;32mI (593) main_task: Calling app_main()[0m
+[0;32mI (593) gpio: GPIO[17]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:1 [0m
+[0;32mI (603) WEB: startup_task: begin[0m
+[0;32mI (623) WEB: spiffs_task: mounting SPIFFS[0m
+[0;32mI (623) WEB: pumps_task: initializing pumps[0m
+[0;32mI (633) ULTRASONIC_APP: Distance: 8 cm[0m
+[0;32mI (633) ULTRASONIC_APP: Litres: 1.03[0m
+[0;32mI (623) WEB: wifi_task: initializing SoftAP[0m
+[0;32mI (623) WEB: http_task: waiting for SPIFFS mount[0m
+[0;32mI (643) WEB: startup_task: all init tasks created, deleting self[0m
+[0;32mI (643) gpio: GPIO[18]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[19]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (673) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) wifi:[0;32mI (693) WEB: Pumps initialized (GPIO 18, 19)[0m[0m
+wifi driver task: 3ffc9da8, prio:23, stack:6656, core=0[0;32mI (703) WEB: pumps_task: pumps ready (stack high water mark: 2016 words)[0m
+
+[0;32mI (703) WEB: SPIFFS mounted at /spiffs (total: 956561, used: 21335)[0m
+[0;32mI (713) WEB: spiffs_task: mounted[0m
+[0;32mI (723) wifi:[0;32mI (723) WEB: http_task: starting HTTP server[0m[0m
+wifi firmware version: 02461b5
+[0;32mI (733) wifi:wifi certification version: v7.0[0m
+[0;32mI (733) WEB: HTTP server started[0m
+[0;32mI (733) wifi:[0;32mI (743) WEB: http_task: HTTP server started[0m[0m
+config NVS flash: enabled
+[0;32mI (743) wifi:config nano formating: disabled[0m
+[0;32mI (753) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (753) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (763) wifi:Init management short buffer num: 32[0m
+[0;32mI (763) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (773) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (773) wifi:Init static rx buffer num: 10[0m
+[0;32mI (773) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (713) main_task: Returned from app_main()[0m
+[0;32mI (783) wifi_init: rx ba win: 6[0m
+[0;32mI (793) wifi_init: tcpip mbox: 32[0m
+[0;32mI (793) wifi_init: udp mbox: 6[0m
+[0;32mI (793) wifi_init: tcp mbox: 6[0m
+[0;32mI (803) wifi_init: tcp tx win: 5760[0m
+[0;32mI (803) wifi_init: tcp rx win: 5760[0m
+[0;32mI (813) wifi_init: tcp mss: 1440[0m
+[0;32mI (813) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (813) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (823) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (903) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (943) wifi:mode : softAP (78:1c:3c:e3:b0:b9)[0m
+[0;32mI (943) wifi:Total power save buffer number: 16[0m
+[0;32mI (943) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (943) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (953) WEB: SoftAP started. SSID:ESP32S3_AP  PASS:12345678[0m
+[0;32mI (953) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (963) WEB: wifi_task: wifi initialized[0m
+[0;32mI (2483) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1[0m
+[0;32mI (2483) wifi:station: f2:c6:4e:59:10:be join, AID=1, bgn, 20[0m
+[0;32mI (2513) WEB: station f2:c6:4e:59:10:be join, AID=1[0m
+[0;32mI (2643) FLOW: pulses=21 freq=10.50Hz L=0.0012 flow=0.037 L/min cumulative=0.0000[0m
+[0;32mI (3653) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (4643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0000[0m
+[0;32mI (5513) wifi:<ba-add>idx:2 (ifx:1, f2:c6:4e:59:10:be), tid:0, ssn:2, winSize:64[0m
+[0;32mI (5643) ULTRASONIC_APP: Distance: 9 cm[0m
+[0;32mI (5643) ULTRASONIC_APP: Litres: 0.85[0m
+[0;32mI (5663) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (5663) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (5683) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (5683) WEB: api_ultrasonic_handler response: {"distance_cm":9,"current_level":0.85,"total_received":0.00}[0m
+[0;32mI (5693) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (6643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0000[0m
+[0;32mI (7563) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7563) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7573) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7583) WEB: api_ultrasonic_handler response: {"distance_cm":9,"current_level":0.85,"total_received":0.00}[0m
+[0;32mI (7593) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (7883) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (7883) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (7903) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (7913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (7913) WEB: api_ultrasonic_handler response: {"distance_cm":9,"current_level":0.85,"total_received":0.00}[0m
+[0;32mI (8643) FLOW: pulses=0 freq=0.00Hz L=0.0000 flow=0.000 L/min cumulative=0.0000[0m
+[0;32mI (9893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (9893) WEB: api_flow_handler response: {"flow_rate_lpm":0.000,"liters":0.0000,"pulses":0}[0m
+[0;32mI (9913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (9913) WEB: api_ultrasonic_handler response: {"distance_cm":9,"current_level":0.85,"total_received":0.00}[0m
+[0;32mI (9923) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (10433) WEB: pump1_on_handler: request received[0m
+[0;32mI (10433) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
+[0;32mI (10643) FLOW: pulses=719 freq=359.50Hz L=0.0423 flow=1.269 L/min cumulative=0.0423[0m
+[0;32mI (10643) ULTRASONIC_APP: Distance: 0 cm[0m
+[0;32mI (10643) ULTRASONIC_APP: Litres: 2.54[0m
+[0;32mI (10643) ULTRASONIC_APP: 50% threshold reached (dist: 0 cm, cumulative: 0.04 L). Stopping pumps.[0m
+[0;32mI (10653) WEB: pump_set_state: pump 1 -> OFF (gpio 18 level=1)[0m
+[0;32mI (10663) WEB: pump_set_state: pump 2 -> OFF (gpio 19 level=1)[0m
+[0;32mI (11893) WEB: api_flow_handler: GET /api/flow called[0m
+[0;32mI (11893) WEB: api_flow_handler response: {"flow_rate_lpm":1.269,"liters":0.0423,"pulses":719}[0m
+[0;32mI (11903) WEB: pump1_status: {"pump":1,"state":"OFF"}[0m
+[0;32mI (11913) WEB: api_ultrasonic_handler: GET /api/ultrasonic called[0m
+[0;32mI (11923) WEB: api_ultrasonic_handler response: {"distance_cm":0,"current_level":2.54,"total_received":0.04}[0m
+[0;32mI (12643) FLOW: pulses=101 freq=50.50Hz L=0.0059 flow=0.178 L/min cumulative=0.0423[0m
+[0;32mI (12923) WEB: pump1_on_handler: request received[0m
+[0;32mI (12923) WEB: pump_set_state: pump 1 -> ON (gpio 18 level=0)[0m
